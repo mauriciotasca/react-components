@@ -1,5 +1,5 @@
 {
-  "name": "@ac-design/react-components",
+  "name": "@ac-ui/react-components",
   "private": true,
   "version": "1.0.0",
   "jsnext:main": "dist/es/index.js",
@@ -22,7 +22,7 @@
     "reactstrap": "^8.0.0"
   },
   "devDependencies": {
-    "@ac-design/design-system": "*",
+    "@ac-ui/design-system": "git+ssh://git@gitlab.com:acbr/internal/ac-ui/design-system.git",
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.2.0",
     "@babel/plugin-proposal-export-default-from": "^7.2.0",
