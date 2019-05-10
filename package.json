@@ -1,0 +1,47 @@
+{
+  "name": "@ac-design/react-components",
+  "private": true,
+  "version": "1.0.0",
+  "jsnext:main": "dist/es/index.js",
+  "main": "dist/commonjs/index.js",
+  "module": "dist/es/index.js",
+  "scripts": {
+    "postinstall": "npm run build",
+    "build": "npm run build:commonjs && npm run build:es",
+    "build:commonjs": "./node_modules/.bin/cross-env NODE_ENV=build babel src -d dist/commonjs --copy-files",
+    "build:es": "./node_modules/.bin/cross-env NODE_ENV=build-es babel src -d dist/es --copy-files",
+    "styleguide": "npm run styleguide:server",
+    "styleguide:server": "styleguidist server",
+    "styleguide:build": "styleguidist build"
+  },
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "flow-bin": "^0.98.1",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "reactstrap": "^8.0.0"
+  },
+  "devDependencies": {
+    "@ac-design/design-system": "*",
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.2.0",
+    "@babel/plugin-proposal-export-default-from": "^7.2.0",
+    "@babel/plugin-transform-flow-strip-types": "^7.4.4",
+    "@babel/plugin-transform-runtime": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
+    "@babel/preset-flow": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.5",
+    "cross-env": "^5.2.0",
+    "css-loader": "^2.1.1",
+    "file-loader": "^3.0.1",
+    "flow-runtime": "^0.17.0",
+    "node-sass": "^4.12.0",
+    "react-styleguidist": "^9.0.9",
+    "resolve-url-loader": "^3.1.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.30.0",
+    "webpack-cli": "^3.3.2"
+  }
+}
