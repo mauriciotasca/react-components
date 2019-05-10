@@ -1,1 +1,1 @@
-export { default as SubHeader } from './SubHeader';
+export default from './SubHeader';
