@@ -1,0 +1,46 @@
+@import "../../assets/avenue-code-design-system/settings.base";
+@import '../../assets/acdc_global';
+
+.styled-select {
+  //background: url('./img/arrow-down.png') no-repeat 101% 0;
+  overflow: hidden;
+  height: 40px;
+  width: 100%;
+  //background-size: contain;
+}
+
+.styled-select select {
+  background: transparent;
+  border: none;
+  font-size: 14px;
+  height: 40px;
+  padding: 5px; /* If you add too much padding here, the options won't show in IE */
+  width: 98%;
+}
+
+.styled-select.slate select {
+  border: 1px solid #ccc;
+  font-size: 16px;
+  height: 34px;
+  width: 90%;
+}
+
+/* -------------------- Rounded Corners */
+.rounded {
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+}
+
+.semi-square {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+/* -------------------- Colors: Background */
+.acdc-select-colors    { background-color: #FFF; }
+
+/* -------------------- Colors: Text */
+.acdc-select-colors select    { color: #000; }
+
