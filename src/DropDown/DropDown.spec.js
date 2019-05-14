@@ -2,23 +2,24 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import DropDown from './Dropdown';
 
-const setup = (props = {}, state = null) => shallow(<DropDown />);
-
-const findByTestAttr = (wrapper, val) => wrapper.find(`[data-test="${val}"]`);
+const setup = props => shallow(<DropDown {...props} />);
 
 describe('DropDown', () => {
-  const wrapper = setup({ field: { name: 'activityId' }, idKey: 'id', valueKey: 'name', items: [{ id: 1, name: 'fakeOption' }] });
-  const component = findByTestAttr(wrapper, 'component-acdropdown');
+  const noItemsText = 'No items found';
+  const wrapper = setup({
+    noItemsText: noItemsText,
+    field: { name: 'activityId' },
+    idKey: 'id',
+    valueKey: 'name'
+  });
 
-  console.log(wrapper.text());
-  console.log(component.text());
+  const select = wrapper.find('select');
 
-  test('renders ACDropDown without crashing', () => {
-    expect(component.length).toBe(1);
+  test('renders DropDown without crashing', () => {
+    expect(select.length).toBe(1);
   });
 
   test('contains a select with "No items found" option', () => {
-    expect(component.text()).toContain('-- No items found --')
+    expect(select.text()).toContain(noItemsText);
   });
-
 });
