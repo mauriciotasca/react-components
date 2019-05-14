@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import './ACDropDown.scss';
+import './DropDown.scss';
 
 
 type Props = {
@@ -27,7 +27,7 @@ type Props = {
 /**
  *
  * */
-const ACDropDown = (props: Props) => {
+const DropDown = (props: Props) => {
   const {
     items,
     selectedValue,
@@ -69,4 +69,4 @@ const ACDropDown = (props: Props) => {
   );
 };
 
-export default ACDropDown;
+export default DropDown;
