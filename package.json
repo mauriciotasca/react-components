@@ -1,6 +1,9 @@
 {
   "name": "@ac-ui/react-components",
   "private": true,
+  "engines": {
+    "node": "10.0.0"
+  },
   "version": "1.0.0",
   "jsnext:main": "dist/es/index.js",
   "main": "dist/commonjs/index.js",
