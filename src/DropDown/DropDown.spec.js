@@ -1,16 +1,12 @@
 import React from 'react';
-import Enzyme, { shallow } from 'enzyme';
-import EnzymeAdapter from 'enzyme-adapter-react-16';
-
-import DropDown from './ACDropDown';
-
-Enzyme.configure({ adapter: new EnzymeAdapter() });
+import { shallow } from 'enzyme';
+import DropDown from './Dropdown';
 
 const setup = (props = {}, state = null) => shallow(<DropDown />);
 
 const findByTestAttr = (wrapper, val) => wrapper.find(`[data-test="${val}"]`);
 
-describe('ACDropDown', () => {
+describe('DropDown', () => {
   const wrapper = setup({ field: { name: 'activityId' }, idKey: 'id', valueKey: 'name', items: [{ id: 1, name: 'fakeOption' }] });
   const component = findByTestAttr(wrapper, 'component-acdropdown');
 

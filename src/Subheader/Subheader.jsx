@@ -5,7 +5,7 @@ import './style.scss';
 type Props = {
   /** String, or FormattedMessage to display as Subheading */
   title: React.Element,
-  children?: React.Element,
+  content?: React.Element,
 }
 
 const Subheader = (props: Props) => {
