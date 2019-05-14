@@ -6,20 +6,35 @@ const setup = props => shallow(<DropDown {...props} />);
 
 describe('DropDown', () => {
   const noItemsText = 'No items found';
-  const wrapper = setup({
-    noItemsText: noItemsText,
+  const dummyOptionText = 'Please select an option';
+  const defaultProps = {
+    dummyOptionText,
+    noItemsText,
     field: { name: 'activityId' },
     idKey: 'id',
     valueKey: 'name'
+  };
+  const items = [{ id: 1, name: 'Dummy Option' }];
+
+  describe('when rendered without items', () => {
+    const wrapper = setup(defaultProps);
+    const select = wrapper.find('select');
+
+    test(`contains a select with '${noItemsText}' text`, () => {
+      expect(select.text()).toContain(noItemsText);
+    });
   });
 
-  const select = wrapper.find('select');
+  describe('when rendered with items', () => {
+    const enhancedProps = {
+      ...defaultProps,
+      items,
+    };
+    const wrapper = setup(enhancedProps);
+    const select = wrapper.find('select');
 
-  test('renders DropDown without crashing', () => {
-    expect(select.length).toBe(1);
-  });
-
-  test('contains a select with "No items found" option', () => {
-    expect(select.text()).toContain(noItemsText);
-  });
+    test(`contains a select with '${dummyOptionText}' text`, () => {
+      expect(select.text()).toContain(dummyOptionText);
+    });
+  })
 });
