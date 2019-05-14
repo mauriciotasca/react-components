@@ -39,33 +39,31 @@ const DropDown = (props: Props) => {
     onDropDownItemBlur
   } = props;
 
-  function renderSelectOptions() {
-    if (items && items.length > 0) {
-      const convertedItems = items.map(item => (
-        <option key={item[idKey]} value={item[idKey]}>
-          {item[valueKey]}
-        </option>
-      ));
-
-      convertedItems.unshift(
-        <option disabled key={0} value={'0'}>-- {dummyOptionText} --</option>
-      );
-
-      return convertedItems;
-    }
-    return <option disabled key={0} value={'0'}>-- {noItemsText} --</option>;
-  }
+  const selectText = items && items.length ? dummyOptionText : noItemsText;
 
   return (
-      <select
-        data-test="component-acdropdown"
-        className="custom-select"
-        value={selectedValue}
-        onChange={onDropDownItemChange}
-        onBlur={onDropDownItemBlur}
-      >
-        {renderSelectOptions()}
-      </select>
+    <select
+      className="custom-select"
+      value={selectedValue}
+      onChange={onDropDownItemChange}
+      onBlur={onDropDownItemBlur}
+    >
+      <option disabled key={0} value={'0'}>
+        -- {selectText} --
+      </option>
+      {
+        items && items.length ? (
+            items.map(item => (
+                <option key={item[idKey]} value={item[idKey]}>
+                  {item[valueKey]}
+                </option>
+              )
+            )
+          )
+          :
+          null
+      }
+    </select>
   );
 };
 
