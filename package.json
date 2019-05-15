@@ -1,11 +1,15 @@
 {
   "name": "@ac-ui/react-components",
   "private": true,
+  "engines": {
+    "node": "10.0.0"
+  },
   "version": "1.0.0",
   "jsnext:main": "dist/es/index.js",
   "main": "dist/commonjs/index.js",
   "module": "dist/es/index.js",
   "scripts": {
+    "test": "BABEL_ENV=testing jest",
     "postinstall": "npm run build",
     "build": "npm run build:commonjs && npm run build:es",
     "build:commonjs": "./node_modules/.bin/cross-env NODE_ENV=build babel src -d dist/commonjs --copy-files",
@@ -21,12 +25,16 @@
     "@babel/plugin-proposal-export-default-from": "^7.2.0",
     "@babel/plugin-transform-flow-strip-types": "^7.4.4",
     "@babel/plugin-transform-runtime": "^7.4.4",
+    "@babel/polyfill": "^7.4.4",
     "@babel/preset-env": "^7.4.4",
     "@babel/preset-flow": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
     "classnames": "^2.2.6",
     "cross-env": "^5.2.0",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.13.0",
     "flow-bin": "^0.98.1",
+    "jest": "^24.8.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "reactstrap": "^8.0.0"
