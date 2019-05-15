@@ -30,7 +30,7 @@ const DropDown = (props: Props) => {
     noItemsText,
     dummyOptionText,
     onDropDownItemChange,
-    onDropDownItemBlur
+    onDropDownItemBlur,
   } = props;
 
   const selectText = items && items.length ? dummyOptionText : noItemsText;
@@ -42,20 +42,18 @@ const DropDown = (props: Props) => {
       onChange={onDropDownItemChange}
       onBlur={onDropDownItemBlur}
     >
-      <option disabled key={0} value={'0'}>
+      <option disabled key={0} value="0">
         -- {selectText} --
       </option>
       {
         items && items.length ? (
-            items.map(item => (
-                <option key={item[idKey]} value={item[idKey]}>
-                  {item[valueKey]}
-                </option>
-              )
-            )
-          )
-          :
-          null
+          items.map(item => (
+            <option key={item[idKey]} value={item[idKey]}>
+              { item[valueKey] }
+            </option>
+          ))
+        )
+          : null
       }
     </select>
   );
