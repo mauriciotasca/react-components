@@ -2,31 +2,25 @@
 import React from 'react';
 import './DropDown.scss';
 
-
 type Props = {
-  /** Description of prop "field..." */
-  field: any,
-  /** Description of prop "items..." */
+  /** Array of options to display in Dropdown */
   items: Array<any>,
-  /** Description of prop "noItemsText..." */
+  /** Selected value of DropDown */
   selectedValue: any,
-  /** Description of prop "noItemsText..." */
-  /** Description of prop "idKey..." */
+  /** Within an Item, which property represents the key */
   idKey: string,
-  /** Description of prop "valueKey..." */
+  /** Within an Item, which property represents the value */
   valueKey: string,
-  /** Description of prop "noItemsText..." */
+  /** Fallback text when no Items are passed to DropDown */
   noItemsText: string,
-  /** Description of prop "dummyOptionText..." */
+  /** Placeholder text of unselected DropDown */
   dummyOptionText: string,
-  /** Description of prop "onDropDownItemChange..." */
+  /** Callback function when DropDown changes value */
   onDropDownItemChange: Function,
-  /** Description of prop "onDropDownItemBlur..." */
+  /** Callback function when a user leaves a DropDown */
   onDropDownItemBlur: Function
 }
-/**
- *
- * */
+
 const DropDown = (props: Props) => {
   const {
     items,

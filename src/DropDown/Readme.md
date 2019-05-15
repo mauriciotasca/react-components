@@ -1,5 +1,12 @@
 ```jsx
-initialState = {
+/*
+TODO:
+- Selected value should explicitly reference an item value
+- Selected option should represent itself in the DOM as selected
+- Forms require a label, or an aria-label for a11y
+*/
+
+state = {
   activityId: 1
 };
 <div className="w-100 bg-info p-4">
