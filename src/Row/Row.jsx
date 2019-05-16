@@ -1,11 +1,11 @@
 // @flow
 import React from 'react';
-import './style.scss'
+import './style.scss';
 
 type Props = {
   children: any,
 };
 
-const Row = (props: Props) => (<div className={'row'}>{props.children}</div>);
+const Row = (props: Props) => (<div className="row">{props.children}</div>);
 
 export default Row;

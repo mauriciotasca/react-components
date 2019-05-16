@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import DropDown from './Dropdown';
+import DropDown from './DropDown';
 
 const setup = props => shallow(<DropDown {...props} />);
 
@@ -12,7 +12,7 @@ describe('DropDown', () => {
     noItemsText,
     field: { name: 'activityId' },
     idKey: 'id',
-    valueKey: 'name'
+    valueKey: 'name',
   };
   const items = [{ id: 1, name: 'Dummy Option' }];
 
@@ -36,5 +36,5 @@ describe('DropDown', () => {
     test(`contains a select with '${dummyOptionText}' text`, () => {
       expect(select.text()).toContain(dummyOptionText);
     });
-  })
+  });
 });

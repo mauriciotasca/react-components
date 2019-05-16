@@ -9,14 +9,24 @@
   "main": "dist/commonjs/index.js",
   "module": "dist/es/index.js",
   "scripts": {
-    "test": "BABEL_ENV=testing jest",
+    "test": "BABEL_ENV=testing jest --coverage",
+    "test:changed": "BABEL_ENV=testing jest -o",
     "postinstall": "npm run build",
     "build": "npm run build:commonjs && npm run build:es",
     "build:commonjs": "./node_modules/.bin/cross-env NODE_ENV=build babel src -d dist/commonjs --copy-files",
     "build:es": "./node_modules/.bin/cross-env NODE_ENV=build-es babel src -d dist/es --copy-files",
     "styleguide": "npm run styleguide:server",
     "styleguide:server": "styleguidist server",
-    "styleguide:build": "styleguidist build"
+    "styleguide:build": "styleguidist build",
+    "lint": "npm run eslint && npm run stylelint",
+    "lint:fix": "npm run eslint:fix && npm run stylelint:fix",
+    "eslint": "./node_modules/.bin/eslint --ext js,jsx src",
+    "eslint:fix": "./node_modules/.bin/eslint --fix --ext js,jsx src",
+    "eslint:fix:staged": "./node_modules/.bin/eslint --fix --ext js,jsx",
+    "stylelint": "./node_modules/.bin/stylelint --syntax=scss 'src/**/*.{css,scss}'",
+    "stylelint:fix": "./node_modules/.bin/stylelint --fix --syntax=scss 'src/**/*.{css,scss}'",
+    "stylelint:check": "./node_modules/.bin/stylelint-config-prettier-check",
+    "stylelint:fix:staged": "./node_modules/.bin/stylelint --fix --syntax=scss"
   },
   "dependencies": {
     "@ac-ui/design-system": "git+ssh://git@gitlab.com:acbr/internal/ac-ui/design-system.git",
@@ -35,21 +45,44 @@
     "enzyme-adapter-react-16": "^1.13.0",
     "flow-bin": "^0.98.1",
     "jest": "^24.8.0",
+    "lint-staged": "^8.1.7",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "reactstrap": "^8.0.0"
   },
   "devDependencies": {
+    "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.5",
     "css-loader": "^2.1.1",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-react-app": "^4.0.1",
+    "eslint-plugin-flowtype": "^3.9.0",
+    "eslint-plugin-import": "^2.17.2",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.13.0",
+    "eslint-plugin-react-hooks": "^1.6.0",
     "file-loader": "^3.0.1",
     "flow-runtime": "^0.17.0",
+    "husky": "^2.3.0",
     "node-sass": "^4.12.0",
+    "prettier": "^1.17.1",
     "react-styleguidist": "^9.0.9",
     "resolve-url-loader": "^3.1.0",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
+    "stylelint": "^10.0.1",
+    "stylelint-config-prettier": "^5.2.0",
+    "stylelint-config-standard": "^18.3.0",
+    "stylelint-config-twbs-bootstrap": "^0.3.1",
+    "stylelint-prettier": "^1.1.0",
+    "stylelint-scss": "^3.6.1",
     "webpack": "^4.30.0",
     "webpack-cli": "^3.3.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }
