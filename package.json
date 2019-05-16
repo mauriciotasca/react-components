@@ -9,7 +9,8 @@
   "main": "dist/commonjs/index.js",
   "module": "dist/es/index.js",
   "scripts": {
-    "test": "BABEL_ENV=testing jest",
+    "test": "BABEL_ENV=testing jest --coverage",
+    "test:changed": "BABEL_ENV=testing jest -o",
     "postinstall": "npm run build",
     "build": "npm run build:commonjs && npm run build:es",
     "build:commonjs": "./node_modules/.bin/cross-env NODE_ENV=build babel src -d dist/commonjs --copy-files",
@@ -25,8 +26,7 @@
     "stylelint": "./node_modules/.bin/stylelint --syntax=scss 'src/**/*.{css,scss}'",
     "stylelint:fix": "./node_modules/.bin/stylelint --fix --syntax=scss 'src/**/*.{css,scss}'",
     "stylelint:check": "./node_modules/.bin/stylelint-config-prettier-check",
-    "stylelint:fix:staged": "./node_modules/.bin/stylelint --fix --syntax=scss",
-    "pretest": "npm run lint:fix"
+    "stylelint:fix:staged": "./node_modules/.bin/stylelint --fix --syntax=scss"
   },
   "dependencies": {
     "@ac-ui/design-system": "git+ssh://git@gitlab.com:acbr/internal/ac-ui/design-system.git",
