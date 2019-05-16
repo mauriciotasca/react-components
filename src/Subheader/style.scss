@@ -2,8 +2,8 @@
 
 .subheader-wrapper {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   padding: map-get($spacers, 3) map-get($spacers, 5);
   background: $white;
   border-bottom: 1px solid #d3d3d3;
