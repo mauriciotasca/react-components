@@ -1,22 +1,15 @@
 // @flow
 import React from 'react';
-import './style.scss'
+import './style.scss';
 
 type Props = {
-  children: any,
+  children: React.Element,
 };
 
-const defaultProps: Props = {
-  children: null,
-};
+const Button = (props: Props) => (
+  <button type="button">{props.children}</button>
+);
 
-const Button = (props: Props) => {
-  return (
-    <button>{props.children}</button>
-  )
-};
-
-Button.defaultProps = defaultProps;
 Button.displayName = 'Button';
 
 export default Button;

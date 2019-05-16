@@ -21,10 +21,12 @@ const Subheader = (props: Props) => {
           { title }
         </h3>
       </div>
-      { content &&
+      { content
+        && (
         <div className="subheader subheader-content">
           {content}
         </div>
+        )
       }
     </div>
   );

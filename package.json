@@ -17,8 +17,9 @@
     "styleguide": "npm run styleguide:server",
     "styleguide:server": "styleguidist server",
     "styleguide:build": "styleguidist build",
-    "lint": "./node_modules/.bin/eslint src",
-    "pretest": "./node_modules/.bin/eslint --fix src"
+    "eslint": "./node_modules/.bin/eslint --ext js,jsx src",
+    "eslint:fix": "./node_modules/.bin/eslint --fix --ext js,jsx src",
+    "pretest": "npm run eslint:fix"
   },
   "dependencies": {
     "@ac-ui/design-system": "git+ssh://git@gitlab.com:acbr/internal/ac-ui/design-system.git",
