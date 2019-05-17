@@ -2,7 +2,10 @@ const webpackConfig = require('./webpack.styleguide.js');
 
 module.exports = {
   title: 'AC Design',
-  components: 'src/**/[A-Z]*.jsx',
+  components: [
+    'src/**/[A-Z]*.jsx',
+    'templates/**/[A-Z]*.jsx',
+  ],
   defaultExample: true,
   showSidebar: true,
   usageMode: 'expand',
@@ -38,5 +41,8 @@ module.exports = {
       },
     },
   },
-  ignore: ['**/*.spec.js'],
+  ignore: [
+    '**/*.scratch/**',
+    '**/*.spec.js',
+  ],
 };

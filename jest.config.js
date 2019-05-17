@@ -17,4 +17,8 @@ module.exports = {
   testMatch: [
     '<rootDir>/src/**/*spec.{js,jsx}',
   ],
+  testPathIgnorePatterns: [
+    '/*.scratch/',
+    '/node_modules/',
+  ],
 };
