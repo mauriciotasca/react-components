@@ -1,13 +1,16 @@
-const path = require('path');
+const webpackConfig = require('./webpack.styleguide.js');
 
 module.exports = {
   title: 'AC Design',
-  components: 'src/**/[A-Z]*.jsx',
+  components: [
+    'src/**/[A-Z]*.jsx',
+    'templates/**/[A-Z]*.jsx',
+  ],
   defaultExample: true,
   showSidebar: true,
   usageMode: 'expand',
   exampleMode: 'expand',
-  webpackConfig: require(path.join(__dirname, 'webpack.styleguide.js')),
+  webpackConfig,
   theme: {
     color: {
       baseBackground: '#fdfdfc',
@@ -16,8 +19,8 @@ module.exports = {
       border: '#e0d2de',
     },
     fontFamily: {
-      base: ['Overpass', 'Helvetica', 'sans-serif']
-    }
+      base: ['Overpass', 'Helvetica', 'sans-serif'],
+    },
   },
   styles: {
     Playground: {
@@ -25,18 +28,21 @@ module.exports = {
         paddingLeft: 0,
         paddingRight: 0,
         borderWidth: [[0, 0, 1, 0]],
-        borderRadius: 0
-      }
+        borderRadius: 0,
+      },
     },
     Markdown: {
       pre: {
         border: 0,
-        background: '#fdfdfc'
+        background: '#fdfdfc',
       },
       code: {
-        fontSize: 14
-      }
-    }
+        fontSize: 14,
+      },
+    },
   },
-  ignore: ['**/*.spec.js']
+  ignore: [
+    '**/*.scratch/**',
+    '**/*.spec.js',
+  ],
 };

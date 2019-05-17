@@ -2,7 +2,6 @@ npm-debug.log
 .idea/
 dist/
 node_modules/
-coverage/
 tmp/
 .vscode/*
 !.vscode/settings.json
@@ -13,3 +12,10 @@ tmp/
 
 # Jest test coverage
 reports/
+coverage/
+
+# Template Components
+*scratch/
+
+# Styleguide
+styleguide/

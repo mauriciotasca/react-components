@@ -21,6 +21,7 @@ module.exports = {
     }
   ],
   rules: {
+    'import/no-dynamic-require': 0,
     'react/destructuring-assignment': 0,
     'react/jsx-one-expression-per-line': 'off',
   },

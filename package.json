@@ -16,7 +16,7 @@
     "build:commonjs": "./node_modules/.bin/cross-env NODE_ENV=build babel src -d dist/commonjs --copy-files",
     "build:es": "./node_modules/.bin/cross-env NODE_ENV=build-es babel src -d dist/es --copy-files",
     "styleguide": "npm run styleguide:server",
-    "styleguide:server": "styleguidist server",
+    "styleguide:server": "styleguidist server --open",
     "styleguide:build": "styleguidist build",
     "lint": "npm run eslint && npm run stylelint",
     "lint:fix": "npm run eslint:fix && npm run stylelint:fix",
@@ -26,7 +26,8 @@
     "stylelint": "./node_modules/.bin/stylelint --syntax=scss 'src/**/*.{css,scss}'",
     "stylelint:fix": "./node_modules/.bin/stylelint --fix --syntax=scss 'src/**/*.{css,scss}'",
     "stylelint:check": "./node_modules/.bin/stylelint-config-prettier-check",
-    "stylelint:fix:staged": "./node_modules/.bin/stylelint --fix --syntax=scss"
+    "stylelint:fix:staged": "./node_modules/.bin/stylelint --fix --syntax=scss",
+    "component:stub": "./node_modules/.bin/copyfiles -a -V --up 2 ./templates/Component/* ./src/Component.scratch/"
   },
   "dependencies": {
     "@ac-ui/design-system": "git+ssh://git@gitlab.com:acbr/internal/ac-ui/design-system.git",
@@ -40,6 +41,7 @@
     "@babel/preset-flow": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
     "classnames": "^2.2.6",
+    "copyfiles": "^2.1.0",
     "cross-env": "^5.2.0",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.13.0",
