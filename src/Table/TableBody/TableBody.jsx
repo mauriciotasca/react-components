@@ -3,25 +3,29 @@ import React from 'react';
 import TableRow from '../TableRow';
 
 type Props = {
-  rowData: Array<any>,
-  CustomTableRow?: React.Component
+  tableData: Array<any>,
+  CustomTableData?: React.Component
 }
 
 const TableBody = (props: Props) => {
-  const { rowData, CustomTableRow } = props;
+  const { tableData, CustomTableData } = props;
+  const hasData = tableData && tableData.length > 0;
 
   return (
     <tbody>
-      <TableRow
-        rowData={rowData}
-        CustomTableRow={CustomTableRow}
-      />
+      { CustomTableData ? (
+        <CustomTableData />
+      ) : (
+        hasData && (
+          tableData.map(rowData => <TableRow rowData={rowData} />)
+        )
+      )}
     </tbody>
   );
 };
 
 TableBody.defaultProps = {
-  CustomTableRow: null,
+  CustomTableData: null,
 };
 
 export default TableBody;

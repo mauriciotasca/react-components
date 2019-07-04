@@ -3,7 +3,7 @@ import React from 'react';
 import TableRow from '../TableRow';
 
 type Props = {
-  headerNames: Array<any>
+  headerNames: Array<string>
 }
 
 const getHeaderRow = headerNames => (
