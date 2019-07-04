@@ -1,10 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import DropDown from './DropDown';
+import CustomSelect from './CustomSelect';
 
-const setup = props => shallow(<DropDown {...props} />);
+const setup = props => shallow(<CustomSelect {...props} />);
 
-describe('DropDown', () => {
+describe('CustomSelect', () => {
   const noItemsText = 'No items found';
   const dummyOptionText = 'Please select an option';
   const defaultProps = {
