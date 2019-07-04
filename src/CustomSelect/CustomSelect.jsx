@@ -1,10 +1,12 @@
 // @flow
 import React from 'react';
-import './DropDown.scss';
+import './style.scss';
 
 type Props = {
   /** Array of options to display in Dropdown */
   items: Array<any>,
+  /** Should Select be disabled (SelectHTMLAttributes) */
+  disabled?: boolean,
   /** Selected value of DropDown */
   selectedValue: any,
   /** Within an Item, which property represents the key */
@@ -21,9 +23,10 @@ type Props = {
   onDropDownItemBlur: Function
 }
 
-const DropDown = (props: Props) => {
+const CustomSelect = (props: Props) => {
   const {
     items,
+    disabled,
     selectedValue,
     idKey,
     valueKey,
@@ -39,6 +42,7 @@ const DropDown = (props: Props) => {
     <select
       className="custom-select"
       value={selectedValue}
+      disabled={disabled}
       onChange={onDropDownItemChange}
       onBlur={onDropDownItemBlur}
     >
@@ -59,4 +63,8 @@ const DropDown = (props: Props) => {
   );
 };
 
-export default DropDown;
+CustomSelect.defaultProps = {
+  disabled: false,
+};
+
+export default CustomSelect;

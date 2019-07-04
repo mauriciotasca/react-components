@@ -1,0 +1,13 @@
+@import '~@ac-ui/design-system/src/base';
+
+.custom-select {
+  height: calc(2.35rem + 2px);
+  padding: 0.375rem 1.75rem 0.375rem 0.9rem;
+  font-size: 14px;
+  border: 2px solid map_get($colors, 'gray-lighter');
+
+  &:focus {
+    border-color: transparentize(map_get($colors, 'black'), 0.75);
+    box-shadow: 0 0 0 0.2rem transparentize(map_get($colors, 'black'), 0.9);
+  }
+}
