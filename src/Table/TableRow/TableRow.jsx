@@ -3,24 +3,25 @@ import React from 'react';
 import uuidv4 from 'uuid/v4';
 
 type Props = {
-  rowData: Array<any>,
+  rowData?: Array<any>,
   CustomTableRow?: React.Component
 }
 
 const TableRow = (props: Props) => {
   const { rowData, CustomTableRow } = props;
+  const hasData = rowData && rowData.length > 0;
 
   return (
     <>
       {
         CustomTableRow ? (
-          <CustomTableRow key={uuidv4()} rowData={rowData} />
+          <CustomTableRow />
         ) : (
-          <tr>
-            {
-              rowData.map(data => <td key={uuidv4()}>{data}</td>)
-            }
-          </tr>
+          hasData && (
+            <tr>
+              { rowData.map(data => <td key={uuidv4()}>{data}</td>) }
+            </tr>
+          )
         )
       }
     </>
@@ -28,6 +29,7 @@ const TableRow = (props: Props) => {
 };
 
 TableRow.defaultProps = {
+  rowData: [],
   CustomTableRow: null,
 };
 
