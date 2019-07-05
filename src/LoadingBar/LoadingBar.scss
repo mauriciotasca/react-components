@@ -1,0 +1,57 @@
+@import '~@ac-ui/design-system/src/base';
+
+@keyframes loading {
+  from {
+    left: 50%;
+    z-index: 100;
+    width: 0;
+  }
+  33.3333% {
+    left: 0;
+    z-index: 10;
+    width: 100%;
+  }
+  to {
+    left: 0;
+    width: 100%;
+  }
+}
+
+.not-loading {
+  position: absolute;
+  width: 100%;
+  height: map_get($spacers, 2);
+}
+
+.load-bar {
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: map_get($spacers, 2);
+}
+
+.bar {
+  $local-duration: 3600ms;
+  $local-interval: $local-duration / 3;
+  position: absolute;
+  display: inline;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  content: '';
+
+  &:nth-child(1) {
+    background-color: $blue;
+    animation: loading $local-duration linear infinite;
+  }
+
+  &:nth-child(2) {
+    background-color: $brand-blue-light;
+    animation: loading $local-duration linear $local-interval infinite;
+  }
+
+  &:nth-child(3) {
+    background-color: $brand-blue-lighter;
+    animation: loading $local-duration linear ($local-interval * 2) infinite;
+  }
+}
