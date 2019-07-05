@@ -14,7 +14,7 @@ const TableRow = (props: Props) => {
   return (
     <>
       { CustomTableRow ? (
-        <CustomTableRow />
+        <CustomTableRow className="custom" />
       ) : (
         hasData && (
           <tr>{ rowData.map(data => <td key={uuidv4()}>{data}</td>) }</tr>

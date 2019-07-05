@@ -44,5 +44,6 @@ module.exports = {
   ignore: [
     '**/*.scratch/**',
     '**/*.spec.js',
+    '**/examples/**',
   ],
 };
