@@ -4,25 +4,22 @@ Generated using a data array or a custom React Component. Each `<TableRow>` shou
 
 Example: Data array
 ```jsx
-import uuidv4 from 'uuid/v4';
-
 const rowData = ['John Appleseed', '40', '$1010.00'];
 
 <table className="table table-bordered table-hover">
   <tbody>
-    <TableRow key={uuidv4()} rowData={rowData} />
+    <TableRow rowData={rowData} />
   </tbody>
 </table>
 ```
 
 Example: Custom React component
 ```jsx
-import uuidv4 from 'uuid/v4';
 import { CustomTableRow } from '../examples';
 
 <table className="table table-bordered table-hover">
   <tbody>
-    <TableRow key={uuidv4()} CustomTableRow={CustomTableRow} />
+    <TableRow CustomTableRow={CustomTableRow} />
   </tbody>
 </table>
 ```
