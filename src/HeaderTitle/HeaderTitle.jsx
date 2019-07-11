@@ -1,43 +1,24 @@
 // @flow
 import React from 'react';
-import './HeaderTitle.scss';
+import AlternatingText from '../AlternatingText';
 
 type Props = {
-  titleText: string
-};
-
-const getSplittedText = (titleText) => {
-  let titleTextArray = [];
-  if (titleText.length > 0) {
-    titleTextArray = titleText.split(' ');
-  }
-
-  const firstWord = titleTextArray.slice(0, 1);
-  const secondWord = titleTextArray.slice(1, titleTextArray.length);
-  let rest = '';
-  if (secondWord.length > 0) {
-    rest = secondWord.join(' ');
-  }
-
-  return {
-    firstWord,
-    rest,
-  };
+  /** Header text. */
+  text: string,
+  /** Array of classNames to add to the component. */
+  classList?: Array<string>,
 };
 
 const HeaderTitle = (props: Props) => {
-  const { titleText } = props;
-  const { firstWord, rest } = getSplittedText(titleText);
+  const { text, classList } = props;
 
   return (
-    <h2 className="font-weight-black">
-      {firstWord}
-      &nbsp;
-      <span className="font-weight-extra-light">
-        {rest}
-      </span>
-    </h2>
+    <AlternatingText text={text} As="h2" classList={classList} />
   );
+};
+
+HeaderTitle.defaultProps = {
+  classList: [],
 };
 
 export default HeaderTitle;

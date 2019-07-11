@@ -1,6 +1,6 @@
+Header component for Avenue Code.
+
 Example:
-
 ```jsx
-<HeaderTitle titleText="Header Title"/>
-
+<HeaderTitle text="Header Title" />
 ```

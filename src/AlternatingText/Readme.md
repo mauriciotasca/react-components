@@ -6,6 +6,11 @@ Example: Default
 <AlternatingText text="里îßPseudo language is preferred in tests里îß"/>
 ```
 
+Example: Custom separator
+```jsx
+<AlternatingText text="里îßPseudo language is preferred in tests里îß" separator={' --> '}/>
+```
+
 Example: Reversed
 ```jsx
 <AlternatingText text="里îßPseudo language is preferred in tests里îß" isReversed={true}/>
@@ -15,6 +20,7 @@ Example: Custom classes
 ```jsx
 <AlternatingText text="里îßPseudo language is preferred in tests里îß" classList={['custom', 'custom-text']}/>
 ```
+
 Example: Custom split location
 ```jsx
 <AlternatingText text="里îßPseudo language is preferred in tests里îß" splitAt={3}/>
