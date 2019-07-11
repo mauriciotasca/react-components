@@ -32,9 +32,8 @@ describe('Component', () => {
 
   it('should have additional classNames when passed in a classList', () => {
     const classList = ['custom', 'custom-text'];
-    const props = { classList };
 
-    wrapper.setProps({ ...props });
+    wrapper.setProps({ classList });
 
     classList.forEach((className) => {
       expect(wrapper.prop('className')).toContain(className);
@@ -44,7 +43,7 @@ describe('Component', () => {
   it('should split text styling at the specified location', () => {
     const splitAt = 3;
     const textArray = textString.split(' ');
-    const first = textArray.slice(0, splitAt).join(' ').concat(' ');
+    const first = textArray.slice(0, splitAt).join(' ');
     const rest = textArray.slice(splitAt).join(' ');
 
     wrapper.setProps({ splitAt });
@@ -55,9 +54,18 @@ describe('Component', () => {
     expect(lightText).toEqual(rest);
   });
 
+  describe('When passed in a separator', () => {
+    it('should render the separator text string', () => {
+      const separator = '>';
+
+      wrapper.setProps({ separator });
+      expect(wrapper.text()).toContain('>');
+    });
+  });
+
   describe('When passed in text', () => {
     const textArray = textString.split(' ');
-    const firstWord = textArray[0].concat(' ');
+    const firstWord = textArray[0];
     const rest = textArray.slice(1).join(' ');
 
     describe('and isReversed is false and splitAt is 1', () => {
