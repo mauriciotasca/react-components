@@ -1,7 +1,10 @@
 @import '~@ac-ui/design-system/src/base';
 
+$local-duration: 3600ms !default;
+$local-interval: $local-duration / 3 !default;
+
 @keyframes loading {
-  from {
+  0% {
     left: 50%;
     z-index: 100;
     width: 0;
@@ -11,30 +14,20 @@
     z-index: 10;
     width: 100%;
   }
-  to {
+  100% {
     left: 0;
     width: 100%;
   }
 }
 
-.not-loading {
+.loading-bar {
   position: absolute;
   width: 100%;
   height: map_get($spacers, 2);
 }
 
-.load-bar {
+.is-loading {
   position: absolute;
-  z-index: -1;
-  width: 100%;
-  height: map_get($spacers, 2);
-}
-
-.bar {
-  $local-duration: 3600ms;
-  $local-interval: $local-duration / 3;
-  position: absolute;
-  display: inline;
   width: 100%;
   height: 100%;
   text-align: center;
