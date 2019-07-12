@@ -1,25 +1,25 @@
 // @flow
 import React from 'react';
-import './LoadingBar.scss';
+import './style.scss';
 
 type Props = {
-  /** Description of prop "isLoading..." */
+  /** Boolean to toggle LoadingBar on/off. */
   isLoading: boolean;
 }
 
 const LoadingBar = (props:Props) => {
-  const {
-    isLoading,
-  } = props;
+  const { isLoading } = props;
 
   return (
     isLoading ? (
-      <div className="load-bar">
-        <div className="bar" />
-        <div className="bar" />
-        <div className="bar" />
+      <div className="loading-bar">
+        <div className="is-loading is-loading--blue" />
+        <div className="is-loading is-loading--blue-light" />
+        <div className="is-loading is-loading--blue-lighter" />
       </div>
-    ) : (<div className="not-loading" />)
+    ) : (
+      <div className="loading-bar loading-bar--not-loading" />
+    )
   );
 };
 
