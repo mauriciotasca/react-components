@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import './style.scss';
 
 type Props = {
+  /** String, or FormattedMessage to display as Button text. */
   children: React.Element,
   /** Array of classNames to add to the component. */
   classList?: Array<string>,
@@ -12,10 +13,10 @@ type Props = {
 };
 
 const Button = (props: Props) => {
-  const { classList, onClick } = props;
+  const { classList, onClick, children } = props;
 
   return (
-    <button type="button" className={classNames(classList)} onClick={onClick}>{props.children}</button>
+    <button type="button" className={classNames(classList)} onClick={onClick}>{children}</button>
   );
 };
 
