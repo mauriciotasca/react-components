@@ -6,10 +6,10 @@ import './style.scss';
 type Props = {
   /** String, or FormattedMessage to display as Button text. */
   children: React.Element,
-  /** Array of classNames to add to the component. */
-  classList?: Array<string>,
+  /** String className or Array of String classNames to add to the component. */
+  classList?: string | Array<string>,
   /** Custom click event handler. */
-  onClick?: () => void,
+  onClick?: Function,
 };
 
 const Button = (props: Props) => {
@@ -21,7 +21,7 @@ const Button = (props: Props) => {
 };
 
 Button.defaultProps = {
-  classList: [],
+  classList: '',
   onClick: null,
 };
 

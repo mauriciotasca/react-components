@@ -10,17 +10,18 @@ type Props = {
   /** Function that will be run when the modal is requested to be closed
    * (either by clicking on overlay or pressing ESC). */
   onClose: Function,
-  /** Custom classNames to be applied to the modal content.
-   * 'react-modal' content styles will not be applied when custom classNames are used. */
-  classList?: Array<string>,
+  /** String className or Array of String classNames to be applied to the modal content. */
+  classList?: string | Array<string>,
   /** HTML content or React component with the contents of the modal. */
   children?: any,
+  /** String indicating how the content container should be announced to screenreaders. */
+  contentLabel: string,
   /** ARIA attributes to make your `Modal` more accessible.
    * Keys define the attributes you want to set (without the leading aria- prefix).
-   * Ex. `{ labelledby: 'heading' }` will use the element with id `heading` to set a
-   * text alternative to the `aria-labelledby`attribute.
+   * Ex. `{ describedby: 'full_description' }` will use the element with id `full_description`
+   * to set a text alternative to the `aria-describedby` attribute.
    */
-  ariaAttributes: object,
+  ariaAttributes?: object,
 };
 
 const Modal = (props: Props) => {
@@ -29,6 +30,7 @@ const Modal = (props: Props) => {
     onClose,
     classList,
     children,
+    contentLabel,
     ariaAttributes,
     ...rest
   } = props;
@@ -47,9 +49,9 @@ const Modal = (props: Props) => {
       onRequestClose={onClose}
       shouldCloseOnOverlayClick
       closeTimeoutMS={400}
-      className={classNames('modal-dialog', 'modal-dialog-centered', classList)}
-      portalClassName={classNames('ReactModalPortal', 'ac-modal')}
+      className={classNames('modal-dialog', 'modal-dialog-centered', 'ac-modal', classList)}
       style={styles}
+      contentLabel={contentLabel}
       aria={ariaAttributes}
       {...rest}
     >
@@ -59,8 +61,9 @@ const Modal = (props: Props) => {
 };
 
 Modal.defaultProps = {
-  classList: [],
+  classList: '',
   children: null,
+  ariaAttributes: {},
 };
 
 export default Modal;

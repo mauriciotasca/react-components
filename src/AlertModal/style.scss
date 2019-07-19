@@ -1,0 +1,5 @@
+.ac-modal--alert {
+  &.ReactModal__Content--after-open {
+    animation: alert-animation 1600ms linear;
+  }
+}

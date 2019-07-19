@@ -1,22 +1,18 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import Modal from './Modal';
+import AlertModal from './AlertModal';
 
 describe('Component', () => {
-  const content = '<div>Modal Content</div>';
   const defaultProps = {
     isOpen: false,
     onClose: jest.fn(),
-    contentLabel: 'Modal Example',
+    title: 'Example Alert',
+    description: 'This is an alert!',
   };
-  const wrapper = mount(<Modal {...defaultProps}>{content}</Modal>);
+  const wrapper = mount(<AlertModal {...defaultProps} />);
 
   it('should render without error', () => {
     expect(wrapper).toBeTruthy();
-  });
-
-  it('should not render modal content when isOpen is false', () => {
-    expect(wrapper.contains(content)).toBeFalsy();
   });
 
   describe('When modal is open', () => {
@@ -25,12 +21,8 @@ describe('Component', () => {
       wrapper.update();
     });
 
-    it('should render modal content', () => {
-      expect(wrapper.contains(content)).toBeTruthy();
-    });
-
-    it('should have a aria-label for the content container', () => {
-      expect(wrapper.find('.ReactModal__Content').prop('aria-label')).toEqual(defaultProps.contentLabel);
+    it('should have a aria-label `Alert Modal` for the content container', () => {
+      expect(wrapper.find('.ReactModal__Content').prop('aria-label')).toEqual('Alert Modal');
     });
 
     it('should add .ReactModal__Body--open class to the page body', () => {
@@ -39,6 +31,16 @@ describe('Component', () => {
 
     it('modal content should be focused', () => {
       expect(document.activeElement.classList).toContain('ReactModal__Content');
+    });
+
+    it('should contain a content title', () => {
+      expect(wrapper.find('.ac-modal--alert__title')).toBeTruthy();
+      expect(wrapper.find('.ac-modal--alert__title').contains(defaultProps.title)).toBeTruthy();
+    });
+
+    it('should contain a content description', () => {
+      expect(wrapper.find('.ac-modal--alert__desc')).toBeTruthy();
+      expect(wrapper.find('.ac-modal--alert__desc').contains(defaultProps.description)).toBeTruthy();
     });
 
     it('should call onClose when clicking on Modal overlay', () => {
