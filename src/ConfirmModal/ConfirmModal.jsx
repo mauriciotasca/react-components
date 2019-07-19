@@ -21,7 +21,7 @@ type Props = {
   /** String or FormattedMessage to display as Confirm disclaimer. */
   disclaimer: string | React.Element,
   /** String className or Array of String classNames to be applied to the modal content. */
-  classList?: tring | Array<string>,
+  classList?: string | Array<string>,
   /** String to display as the dismiss/close button text. */
   dismissButtonLabel?: string,
   /** String to display as the confirm button text. */
@@ -80,7 +80,7 @@ const ConfirmModal = (props: Props) => {
           </div>
         </div>
 
-        <div className="mt-5 d-flex justify-content-center">
+        <div className="mt-5 d-flex justify-content-between">
           <Button classList="ac-modal--confirm__btn-close btn btn-outline-secondary" onClick={onClose}>{dismissButtonLabel}</Button>
           <Button classList={`ac-modal--confirm__btn-confirm btn btn-${dialogType}`} onClick={onConfirm}>{confirmButtonLabel}</Button>
         </div>
