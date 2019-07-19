@@ -16,7 +16,7 @@ type Props = {
   /** If set to `true`, component styling is reversed. */
   isReversed?: boolean,
   /** Additional classNames to add to the component. */
-  classList?: Array<string>,
+  classList?: string | Array<string>,
 };
 
 const AlternatingText = (props: Props) => {
@@ -33,7 +33,7 @@ const AlternatingText = (props: Props) => {
   const rest = textArray.slice(splitAt).join(' ');
 
   return (
-    <As className={classNames('alternating-text', classList)}>
+    <As className={classNames('ac-alternating-text', classList)}>
       <span className={`font-weight-${isReversed ? 'light' : 'bold'}`}>{first}</span>
       {separator}
       <span className={`font-weight-${isReversed ? 'bold' : 'light'}`}>{rest}</span>
@@ -45,7 +45,7 @@ AlternatingText.defaultProps = {
   As: 'h1',
   splitAt: 1,
   isReversed: false,
-  classList: [],
+  classList: '',
   separator: '',
 };
 

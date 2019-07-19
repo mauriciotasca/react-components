@@ -60,7 +60,7 @@ const AlertModal = (props: Props) => {
         </div>
 
         <div className="d-flex flex-column text-center pt-5 pb-5">
-          <div className={`align-self-center text-${dialogType}`}>
+          <div className={`ac-modal--alert__icon align-self-center text-${dialogType}`}>
             {dialogIcon}
           </div>
           <h2 className={`ac-modal--alert__title my-4 font-weight-bold text-${dialogType}`}>{title}</h2>
@@ -68,9 +68,7 @@ const AlertModal = (props: Props) => {
         </div>
 
         <div className="mt-5 d-flex justify-content-center">
-          <Button classList="btn btn-outline-secondary" onClick={onClose}>
-            {buttonLabel}
-          </Button>
+          <Button classList="ac-modal--alert__btn-close btn btn-outline-secondary" onClick={onClose}>{buttonLabel}</Button>
         </div>
       </div>
     </Modal>
