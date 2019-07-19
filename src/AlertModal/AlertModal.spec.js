@@ -35,12 +35,12 @@ describe('Component', () => {
 
     it('should contain a content title', () => {
       expect(wrapper.find('.ac-modal--alert__title')).toBeTruthy();
-      expect(wrapper.find('.ac-modal--alert__title').contains(defaultProps.title)).toBeTruthy();
+      expect(wrapper.find('.ac-modal--alert__title').text()).toEqual(defaultProps.title);
     });
 
     it('should contain a content description', () => {
       expect(wrapper.find('.ac-modal--alert__desc')).toBeTruthy();
-      expect(wrapper.find('.ac-modal--alert__desc').contains(defaultProps.description)).toBeTruthy();
+      expect(wrapper.find('.ac-modal--alert__desc').text()).toEqual(defaultProps.description);
     });
 
     it('should call onClose when clicking on Modal overlay', () => {

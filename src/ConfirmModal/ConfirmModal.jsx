@@ -73,7 +73,7 @@ const ConfirmModal = (props: Props) => {
           <div className={`ac-modal--confirm__icon align-self-center mb-5 text-${dialogType}`}>
             {dialogIcon}
           </div>
-          <AlternatingText text={title} separator="&nbsp;" classList={`ac-modal--confirm__title text-${dialogType}`} />
+          <AlternatingText text={title} separator=" " classList={`ac-modal--confirm__title text-${dialogType}`} />
           <div className="mt-3">
             <h4 className="ac-modal--confirm__subtitle font-weight-bold">{subtitle}</h4>
             <p className="ac-modal--confirm__disclaimer font-size-base text-gray-dark">{disclaimer}</p>
@@ -81,7 +81,7 @@ const ConfirmModal = (props: Props) => {
         </div>
 
         <div className="mt-5 d-flex justify-content-between">
-          <Button classList="ac-modal--confirm__btn-close btn btn-outline-secondary" onClick={onClose}>{dismissButtonLabel}</Button>
+          <Button classList="ac-modal--confirm__btn-dismiss btn btn-outline-secondary" onClick={onClose}>{dismissButtonLabel}</Button>
           <Button classList={`ac-modal--confirm__btn-confirm btn btn-${dialogType}`} onClick={onConfirm}>{confirmButtonLabel}</Button>
         </div>
       </div>
