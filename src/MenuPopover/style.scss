@@ -1,34 +1,34 @@
-@import '~@ac-ui/design-system/src/bridge/dropdown';
-
-.menu-popover-wrapper {
-  position: relative;
-}
-
-.menu-popover-arrow {
-  position: absolute;
-  top: -5px;
-  box-sizing: border-box;
-  width: 26px;
-  height: 10px;
-  overflow: hidden;
-
-  &-left {
-    left: 16px;
+.ac-menu-popover {
+  &-wrapper {
+    position: relative;
   }
 
-  &-right {
-    right: 16px;
-  }
-
-  &::after {
+  &__arrow {
     position: absolute;
-    bottom: 1px;
-    left: calc(50% - 4px);
+    top: -5px;
     box-sizing: border-box;
-    content: '';
-    border: 4px solid;
-    border-color: $black $black transparent transparent;
-    border-top-right-radius: 40%;
-    transform: rotate(-45deg);
+    width: 26px;
+    height: 10px;
+    overflow: hidden;
+
+    &--left {
+      left: 16px;
+    }
+
+    &--right {
+      right: 16px;
+    }
+
+    &::after {
+      position: absolute;
+      bottom: 1px;
+      left: calc(50% - 4px);
+      box-sizing: border-box;
+      content: '';
+      border: 4px solid;
+      border-color: $black $black transparent transparent;
+      border-top-right-radius: 40%;
+      transform: rotate(-45deg);
+    }
   }
 }

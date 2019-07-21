@@ -1,7 +1,6 @@
 // @flow
 import React from 'react';
 import classNames from 'classnames';
-import './style.scss';
 
 type Props = {
   /** String, or FormattedMessage to display as Button text. */
@@ -16,7 +15,7 @@ const Button = (props: Props) => {
   const { classList, onClick, children } = props;
 
   return (
-    <button type="button" className={classNames(classList)} onClick={onClick}>{children}</button>
+    <button type="button" className={classNames('ac-button', classList)} onClick={onClick}>{children}</button>
   );
 };
 

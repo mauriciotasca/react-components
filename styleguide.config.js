@@ -6,6 +6,9 @@ module.exports = {
     'src/**/[A-Z]*.jsx',
     'templates/**/[A-Z]*.jsx',
   ],
+  require: [
+    './src/style.scss',
+  ],
   defaultExample: true,
   showSidebar: true,
   usageMode: 'expand',
@@ -44,7 +47,6 @@ module.exports = {
   ignore: [
     '**/*.scratch/**',
     '**/*.spec.js',
-    '**/utils/**',
-    '**/examples/**',
   ],
+  skipComponentsWithoutExample: true,
 };

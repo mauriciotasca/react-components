@@ -1,5 +1,3 @@
-@import '~@ac-ui/design-system/src/base';
-
 $local-duration: 3600ms !default;
 $local-interval: $local-duration / 3 !default;
 
@@ -20,31 +18,31 @@ $local-interval: $local-duration / 3 !default;
   }
 }
 
-.loading-bar {
+.ac-loading-bar {
   position: absolute;
   width: 100%;
   height: map_get($spacers, 2);
-}
 
-.is-loading {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  content: '';
+  &__is-loading {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    content: '';
 
-  &:nth-child(1) {
-    background-color: $blue;
-    animation: loading $local-duration linear infinite;
-  }
+    &:nth-child(1) {
+      background-color: $blue;
+      animation: loading $local-duration linear infinite;
+    }
 
-  &:nth-child(2) {
-    background-color: $brand-blue-light;
-    animation: loading $local-duration linear $local-interval infinite;
-  }
+    &:nth-child(2) {
+      background-color: $brand-blue-light;
+      animation: loading $local-duration linear $local-interval infinite;
+    }
 
-  &:nth-child(3) {
-    background-color: $brand-blue-lighter;
-    animation: loading $local-duration linear ($local-interval * 2) infinite;
+    &:nth-child(3) {
+      background-color: $brand-blue-lighter;
+      animation: loading $local-duration linear ($local-interval * 2) infinite;
+    }
   }
 }

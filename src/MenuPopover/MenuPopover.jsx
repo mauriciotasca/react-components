@@ -7,14 +7,11 @@ type Props = {
   content: string | React.Element,
   /** Content displayed in popover when it's open  */
   children?: React.Element,
-  /** Array of classNames to add to component wrapper. */
-  classList?: Array<string>,
+  /** Additional classNames to add to the component wrapper. */
+  classList?: string | Array<string>,
   /** Alignmnet of popover with respect to toggle button.
-   * Only has effect if `usePresetStyles` is `true`.
    * Accepted values are `left` and `right`. Default is `left`.  */
   alignment?: String,
-  /** Use ACDC styling. */
-  usePresetStyles?: boolean,
 }
 
 const MenuPopover = (props: Props) => {
@@ -23,7 +20,6 @@ const MenuPopover = (props: Props) => {
     classList,
     children,
     alignment,
-    usePresetStyles,
   } = props;
 
   const [isOpen, setOpen] = useState(false);
@@ -43,13 +39,13 @@ const MenuPopover = (props: Props) => {
   };
 
   return (
-    <div className={classNames('menu-popover-wrapper', classList)} onBlur={handleBlur}>
-      <button type="button" className="menu-popover-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded={isOpen} onClick={handleClick}>
+    <div className={classNames('ac-menu-popover ac-menu-popover-wrapper', classList)} onBlur={handleBlur}>
+      <button type="button" className="ac-menu-popover__button" data-toggle="dropdown" aria-haspopup="true" aria-expanded={isOpen} onClick={handleClick}>
         {content}
       </button>
       { isOpen && children && (
-        <div className={classNames('menu-popover-dropdown', { 'dropdown-menu d-block': usePresetStyles }, { [`dropdown-menu-${alignment}`]: usePresetStyles })}>
-          { usePresetStyles && <div className={classNames('menu-popover-arrow', [`menu-popover-arrow-${alignment}`])} /> }
+        <div className={`ac-menu-popover__dropdown dropdown-menu d-block dropdown-menu-${alignment}`}>
+          { <div className={`ac-menu-popover__arrow menu-popover__arrow--${alignment}`} /> }
           {children}
         </div>
       )}
@@ -59,9 +55,8 @@ const MenuPopover = (props: Props) => {
 
 MenuPopover.defaultProps = {
   children: null,
-  classList: [],
+  classList: '',
   alignment: 'left',
-  usePresetStyles: false,
 };
 
 export default MenuPopover;
