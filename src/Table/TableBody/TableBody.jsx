@@ -31,4 +31,6 @@ TableBody.defaultProps = {
   CustomTableBody: null,
 };
 
+TableBody.displayName = 'TableBody';
+
 export default TableBody;

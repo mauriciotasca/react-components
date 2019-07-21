@@ -41,4 +41,6 @@ Subheader.defaultProps = {
   classList: '',
 };
 
+Subheader.displayName = 'Subheader';
+
 export default Subheader;

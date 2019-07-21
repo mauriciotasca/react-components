@@ -83,4 +83,6 @@ AlertModal.defaultProps = {
   ariaAttributes: {},
 };
 
+AlertModal.displayName = 'AlertModal';
+
 export default AlertModal;

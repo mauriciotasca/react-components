@@ -98,4 +98,6 @@ ConfirmModal.defaultProps = {
   ariaAttributes: {},
 };
 
+ConfirmModal.displayName = 'ConfirmModal';
+
 export default ConfirmModal;

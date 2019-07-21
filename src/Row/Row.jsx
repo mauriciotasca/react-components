@@ -20,4 +20,6 @@ Row.defaultProps = {
   classList: '',
 };
 
+Row.displayName = 'Row';
+
 export default Row;

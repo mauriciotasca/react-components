@@ -24,4 +24,6 @@ const TableHeader = (props: Props) => {
   );
 };
 
+TableHeader.displayName = 'TableHeader';
+
 export default TableHeader;

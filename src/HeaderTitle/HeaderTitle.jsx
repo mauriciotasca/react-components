@@ -22,4 +22,6 @@ HeaderTitle.defaultProps = {
   classList: '',
 };
 
+HeaderTitle.displayName = 'HeaderTitle';
+
 export default HeaderTitle;

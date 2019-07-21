@@ -48,4 +48,6 @@ AlternatingText.defaultProps = {
   separator: '',
 };
 
+AlternatingText.displayName = 'AlternatingText';
+
 export default AlternatingText;

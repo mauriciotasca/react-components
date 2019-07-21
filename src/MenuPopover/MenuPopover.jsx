@@ -59,4 +59,6 @@ MenuPopover.defaultProps = {
   alignment: 'left',
 };
 
+MenuPopover.displayName = 'MenuPopover';
+
 export default MenuPopover;

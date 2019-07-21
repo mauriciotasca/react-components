@@ -66,4 +66,6 @@ Modal.defaultProps = {
   ariaAttributes: {},
 };
 
+Modal.displayName = 'Modal';
+
 export default Modal;

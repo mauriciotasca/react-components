@@ -67,4 +67,6 @@ CustomSelect.defaultProps = {
   disabled: false,
 };
 
+CustomSelect.displayName = 'CustomSelect';
+
 export default CustomSelect;

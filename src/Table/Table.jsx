@@ -35,4 +35,6 @@ Table.defaultProps = {
   classList: '',
 };
 
+Table.displayName = 'Table';
+
 export default Table;

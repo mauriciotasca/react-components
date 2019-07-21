@@ -30,4 +30,6 @@ LoadingBar.defaultProps = {
   classList: '',
 };
 
+LoadingBar.displayName = 'LoadingBar';
+
 export default LoadingBar;

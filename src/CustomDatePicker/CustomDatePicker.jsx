@@ -75,4 +75,6 @@ CustomDatePicker.defaultProps = {
   customInput: null,
 };
 
+CustomDatePicker.displayName = 'CustomDatePicker';
+
 export default CustomDatePicker;

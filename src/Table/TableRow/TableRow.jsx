@@ -28,4 +28,6 @@ TableRow.defaultProps = {
   CustomTableRow: null,
 };
 
+TableRow.displayName = 'TableRow';
+
 export default TableRow;
