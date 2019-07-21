@@ -2,9 +2,9 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import MenuPopover from './MenuPopover';
 
-const MENU_POPOVER_WRAPPER = '.menu-popover-wrapper';
-const MENU_POPOVER_TOGGLE_BUTTON = '.menu-popover-button';
-const MENU_POPOVER_DROPDOWN = '.menu-popover-dropdown';
+const MENU_POPOVER_WRAPPER = '.ac-menu-popover-wrapper';
+const MENU_POPOVER_TOGGLE_BUTTON = '.ac-menu-popover__button';
+const MENU_POPOVER_DROPDOWN = '.ac-menu-popover__dropdown';
 
 describe('Component (MenuPopover)', () => {
   const defaultProps = {
