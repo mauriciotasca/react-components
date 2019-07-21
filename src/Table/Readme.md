@@ -2,6 +2,15 @@ Table component for Avenue Code. Generates a `<table>` component given a data ar
 
 Makes use of `<TableHeader>`, `<TableBody>` and `<TableRow>` sub-components, each of which are reusable independently as well.
 
+This component makes use of `Bootstrap table` styles in addition to `ac-ui` base styles (which includes Bootstrap SCSS variables, functions, and mixins).
+To apply styles, import `ac-ui` page styles and Bootstrap's modal classes:
+  * `@import "~@ac-ui/design-system/src/page"`
+  * `@import "~@ac-ui/design-system/src/bridge/tables"`
+  
+Thereafter, you can pass in Bootstrap classnames via the `classList` prop or apply your own custom styles.
+
+Table content can be accessed using the classname `ac-table`.
+
 Example: Table data array
 ```jsx
 const headerNames = ['Name', 'Billable Hours', 'Total Pay']
