@@ -1,12 +1,15 @@
-import React, { useState } from 'react';
+// @flow
+import React from 'react';
 import classNames from 'classnames';
 import './style.scss';
 
 type Props = {
-  /** Popover button content. Displayed both when popover is closed and open.  */
-  content: string | React.Element,
+  /** Boolean describing if the modal should be shown or not. */
+  isOpen: boolean,
+  /** Function that will be run when popover focus is lost. */
+  onClose: Function,
   /** Content displayed in popover when it's open  */
-  children?: React.Element,
+  children: React.Element,
   /** Additional classNames to add to the component wrapper. */
   classList?: string | Array<string>,
   /** Alignmnet of popover with respect to toggle button.
@@ -16,13 +19,12 @@ type Props = {
 
 const MenuPopover = (props: Props) => {
   const {
-    content,
+    isOpen,
+    onClose,
     classList,
     children,
     alignment,
   } = props;
-
-  const [isOpen, setOpen] = useState(false);
 
   const handleBlur = (event) => {
     // currentTarget refers to this component.
@@ -30,31 +32,23 @@ const MenuPopover = (props: Props) => {
     // triggered this event.
     // So in effect, this condition checks if the user clicked outside the component.
     if (!event.currentTarget.contains(event.relatedTarget)) {
-      setOpen(false);
+      onClose();
     }
   };
 
-  const handleClick = () => {
-    setOpen(!isOpen);
-  };
-
   return (
-    <div className={classNames('ac-menu-popover ac-menu-popover-wrapper', classList)} onBlur={handleBlur}>
-      <button type="button" className="ac-menu-popover__button" data-toggle="dropdown" aria-haspopup="true" aria-expanded={isOpen} onClick={handleClick}>
-        {content}
-      </button>
-      { isOpen && children && (
+    isOpen && children && (
+      <div className={classNames('ac-menu-popover ac-menu-popover-wrapper', classList)} onBlur={handleBlur}>
         <div className={`ac-menu-popover__dropdown dropdown-menu d-block dropdown-menu-${alignment}`}>
           { <div className={`ac-menu-popover__arrow menu-popover__arrow--${alignment}`} /> }
           {children}
         </div>
-      )}
-    </div>
+      </div>
+    )
   );
 };
 
 MenuPopover.defaultProps = {
-  children: null,
   classList: '',
   alignment: 'left',
 };
