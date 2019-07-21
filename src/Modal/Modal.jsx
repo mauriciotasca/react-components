@@ -49,7 +49,7 @@ const Modal = (props: Props) => {
       onRequestClose={onClose}
       shouldCloseOnOverlayClick
       closeTimeoutMS={400}
-      className={classNames('modal-dialog', 'modal-dialog-centered', 'ac-modal', classList)}
+      className={classNames('ac-modal', 'modal-dialog', 'modal-dialog-centered', classList)}
       style={styles}
       contentLabel={contentLabel}
       aria={ariaAttributes}

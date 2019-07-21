@@ -40,7 +40,7 @@ const CustomSelect = (props: Props) => {
 
   return (
     <select
-      className="custom-select"
+      className="ac-custom-select"
       value={selectedValue}
       disabled={disabled}
       onChange={onDropDownItemChange}

@@ -6,9 +6,14 @@ It is important for screenreaders that other page content be hidden while the `M
 There are 3 required props: `isOpen`, `onClose`, and `ariaAttributes`. Other props are optional.
 For a complete list of available props, refer to the `react-modal` [documentation](http://reactcommunity.org/react-modal/#usage).
 
-This component has access to `Bootstrap modal` styles in addition to `AC design-system` base styles (which includes `Bootstrap SCSS variables, functions, and mixins`).
-To apply styles, simply pass in `Bootstrap` classnames via the `classList` prop or include them as part of `children` nodes.
-The root of this component can be accessed using the classname `ac-modal`.
+This component makes use of `Bootstrap modal` styles in addition to `ac-ui` base styles (which includes Bootstrap SCSS variables, functions, and mixins).
+To apply styles, import `ac-ui` page styles and Bootstrap's modal classes:
+  * `@import "~@ac-ui/design-system/src/page"`
+  * `@import "~@ac-ui/design-system/src/bridge/modal"`
+  
+Thereafter, you can pass in Bootstrap classnames via the `classList` prop, include them as part of `children` nodes, or apply your own custom styles.
+
+Modal content can be accessed using the classname `ac-modal`.
 
 ```jsx
 import { useState } from 'react';

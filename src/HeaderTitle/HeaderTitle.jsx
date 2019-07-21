@@ -1,24 +1,25 @@
 // @flow
 import React from 'react';
+import classNames from 'classnames';
 import AlternatingText from '../AlternatingText';
 
 type Props = {
   /** Header text. */
   text: string,
-  /** Array of classNames to add to the component. */
-  classList?: Array<string>,
+  /** String className or Array of String classNames to add to the component. */
+  classList?: string | Array<string>,
 };
 
 const HeaderTitle = (props: Props) => {
   const { text, classList } = props;
 
   return (
-    <AlternatingText text={text} As="h2" classList={classList} />
+    <AlternatingText text={text} As="h2" classList={classNames('ac-header-title', classList)} />
   );
 };
 
 HeaderTitle.defaultProps = {
-  classList: [],
+  classList: '',
 };
 
 export default HeaderTitle;

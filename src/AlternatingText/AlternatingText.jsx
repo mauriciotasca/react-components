@@ -1,7 +1,6 @@
 // @flow
 import * as React from 'react';
 import classNames from 'classnames';
-import './style.scss';
 
 type Props = {
   /** String to convert to alternating text. */

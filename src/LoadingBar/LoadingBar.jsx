@@ -1,26 +1,33 @@
 // @flow
 import React from 'react';
+import classNames from 'classnames';
 import './style.scss';
 
 type Props = {
   /** Boolean to toggle LoadingBar on/off. */
-  isLoading: boolean;
+  isLoading: boolean,
+  /** Additional classNames to add to the component. */
+  classList?: string | Array<string>,
 }
 
 const LoadingBar = (props:Props) => {
-  const { isLoading } = props;
+  const { isLoading, classList } = props;
 
   return (
     isLoading ? (
-      <div className="loading-bar">
-        <div className="is-loading is-loading--blue" />
-        <div className="is-loading is-loading--blue-light" />
-        <div className="is-loading is-loading--blue-lighter" />
+      <div className={classNames('ac-loading-bar', classList)}>
+        <div className="ac-loading-bar__is-loading ac-loading-bar__is-loading--blue" />
+        <div className="ac-loading-bar__is-loading ac-loading-bar__is-loading--blue-light" />
+        <div className="ac-loading-bar__is-loading ac-loading-bar__is-loading--blue-lighter" />
       </div>
     ) : (
-      <div className="loading-bar loading-bar--not-loading" />
+      <div className={classNames('ac-loading-bar ac-loading-bar--not-loading', classList)} />
     )
   );
+};
+
+LoadingBar.defaultProps = {
+  classList: '',
 };
 
 export default LoadingBar;

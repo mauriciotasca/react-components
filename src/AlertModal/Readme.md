@@ -5,10 +5,11 @@ It is important for screenreaders that other page content be hidden while the `M
 
 There are 4 required props: `isOpen`, `onClose`, `title` and `description`. Other props are optional.
 
-This component makes use of `Bootstrap modal` styles in addition to `ac-ui` base styles (which includes Bootstrap SCSS variables, functions, and mixins).
+This component makes use of `Bootstrap modal` and `button` styles in addition to `ac-ui` base styles (which includes Bootstrap SCSS variables, functions, and mixins).
 To apply styles, import `ac-ui` page styles and Bootstrap's modal classes:
   * `@import "~@ac-ui/design-system/src/page"`
   * `@import "~@ac-ui/design-system/src/bridge/modal"`
+  * `@import "~@ac-ui/design-system/src/bridge/buttons"`
   
 Thereafter, you can pass in Bootstrap classnames via the `classList` prop, include them as part of `children` nodes, or apply your own custom styles.
 

@@ -1,5 +1,14 @@
-Alternating Text component for Avenue Code.
+AlternatingText component for Avenue Code.
 Splits text string and applies alternating bold and light font-weight styles. By default, text string is split after the first word and returned as a `<h1>` element.
+
+This component makes use of `ac-ui` base styles (which includes Bootstrap SCSS variables, functions, and mixins).
+To apply styles, import `ac-ui` page and base styles:
+  * `@import "~@ac-ui/design-system/src/page"`
+  * `@import "~@ac-ui/design-system/src/base"`
+  
+Thereafter, you can pass in Bootstrap classnames via the `classList` prop or apply your own custom styles.
+
+AlternatingText content can be accessed using the classname `ac-alternating-text`.
 
 Example: Default
 ```jsx
