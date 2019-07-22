@@ -1,34 +1,41 @@
 // @flow
 import React from 'react';
 import uuidv4 from 'uuid/v4';
+import classNames from 'classnames';
 import TableRow from '../TableRow';
 
 type Props = {
   /** 2D array of shape: `[[row1-value1, row1-value2], [row2-value1, row2-value2], ...]` */
-  tableData: Array<any>,
-  /** Child element to present within component */
-  CustomTableBody?: React.Component
+  tableData?: Array<any>,
+  /** Custom body element to present within component. */
+  CustomTableBody?: React.Component,
+  /** Additional classNames to add to table body component. */
+  classList?: string | Array<string>,
 }
 
 const TableBody = (props: Props) => {
-  const { tableData, CustomTableBody } = props;
+  const { tableData, CustomTableBody, classList } = props;
   const hasData = tableData && tableData.length > 0;
 
   return (
-    <tbody>
+    <>
       { CustomTableBody ? (
-        <CustomTableBody className="custom" />
+        <CustomTableBody />
       ) : (
         hasData && (
-          tableData.map(rowData => <TableRow key={uuidv4()} rowData={rowData} />)
+          <tbody className={classNames('ac-table-body', classList)}>
+            { tableData.map(rowData => <TableRow key={uuidv4()} rowData={rowData} />) }
+          </tbody>
         )
       )}
-    </tbody>
+    </>
   );
 };
 
 TableBody.defaultProps = {
+  tableData: [],
   CustomTableBody: null,
+  classList: '',
 };
 
 TableBody.displayName = 'TableBody';
