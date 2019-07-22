@@ -1,16 +1,20 @@
 // @flow
 import React from 'react';
+import classNames from 'classnames';
 
 type Props = {
-  headerNames: Array<string>
+  /** Array of column headings. */
+  headerNames: Array<string>,
+  /** Additional classNames to add to table header component. */
+  classList?: string | Array<string>,
 }
 
 const TableHeader = (props: Props) => {
-  const { headerNames } = props;
+  const { headerNames, classList } = props;
   const hasHeaders = headerNames && headerNames.length > 0;
 
   return (
-    <thead className="text-center text-uppercase font-weight-bold">
+    <thead className={classNames('ac-table-header text-center text-uppercase font-weight-bold', classList)}>
       { hasHeaders && (
         <tr>
           { headerNames.map(headerName => (
@@ -22,6 +26,10 @@ const TableHeader = (props: Props) => {
       )}
     </thead>
   );
+};
+
+TableHeader.defaultProps = {
+  classList: '',
 };
 
 TableHeader.displayName = 'TableHeader';

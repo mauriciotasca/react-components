@@ -14,7 +14,7 @@ const CustomTableRow = (props: Props) => {
     <tr>
       <td className="d-table-cell align-middle text-center w-10 font-weight-bold">{name}</td>
       <td className="d-table-cell align-middle text-left">
-        <p className="text-truncate name-field-width" title="customData">{hours}</p>
+        <p className="text-truncate name-field-width" title="custom-data">{hours}</p>
       </td>
       <td className="table-success">
         <span>{pay}</span>
