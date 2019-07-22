@@ -25,13 +25,6 @@ module.exports = {
               sourceMapContents: false,
             },
           },
-          {
-            loader: 'sass-resources-loader',
-            options: {
-              // Provide path to the file with resources
-              resources: './src/base.scss',
-            },
-          },
         ],
       },
       {
