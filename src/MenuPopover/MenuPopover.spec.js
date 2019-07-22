@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { mount } from 'enzyme';
 import MenuPopover from './MenuPopover';
 
 const MENU_POPOVER_WRAPPER = '.ac-menu-popover-wrapper';
@@ -8,11 +8,15 @@ const defaultProps = {
   onClose: jest.fn(),
 };
 
-describe('Component (MenuPopover)', () => {
-  const wrapper = shallow(<MenuPopover {...defaultProps}>Popover Content</MenuPopover>);
+describe('Component when open', () => {
+  const wrapper = mount(<MenuPopover {...defaultProps}>Popover Content</MenuPopover>);
 
   it('should render without error', () => {
     expect(wrapper).toBeTruthy();
+  });
+
+  it('should have focus', () => {
+    expect(wrapper.getDOMNode()).toEqual(document.activeElement);
   });
 
   it('wrapper should receive classes when passed in a classList', () => {

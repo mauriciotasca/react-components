@@ -1,5 +1,5 @@
 // @flow
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import classNames from 'classnames';
 import './style.scss';
 
@@ -26,6 +26,8 @@ const MenuPopover = (props: Props) => {
     alignment,
   } = props;
 
+  const wrapperEl = useRef(null);
+
   const handleBlur = (event) => {
     // currentTarget refers to this component.
     // relatedTarget refers to the element where the user clicked (or focused) which
@@ -36,9 +38,15 @@ const MenuPopover = (props: Props) => {
     }
   };
 
+  useEffect(() => {
+    if (wrapperEl.current) {
+      wrapperEl.current.focus();
+    }
+  });
+
   return (
     isOpen && children && (
-      <div className={classNames('ac-menu-popover ac-menu-popover-wrapper', classList)} onBlur={handleBlur}>
+      <div className={classNames('ac-menu-popover ac-menu-popover-wrapper', classList)} tabIndex={-1} ref={wrapperEl} onBlur={handleBlur}>
         <div className={`ac-menu-popover__dropdown dropdown-menu d-block dropdown-menu-${alignment}`}>
           { <div className={`ac-menu-popover__arrow menu-popover__arrow--${alignment}`} /> }
           {children}
