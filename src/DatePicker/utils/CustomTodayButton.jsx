@@ -8,7 +8,9 @@ type Props = {
 };
 
 const CustomTodayButton = (props: Props) => (
-  <Button classList={['btn', 'btn-sm', 'btn-primary']}>{props.children}</Button>
+  <Button classList={['ac-datepicker__btn-custom', 'btn', 'btn-sm', 'btn-primary']}>{props.children}</Button>
 );
+
+CustomTodayButton.displayName = 'CustomTodayButton';
 
 export default CustomTodayButton;
