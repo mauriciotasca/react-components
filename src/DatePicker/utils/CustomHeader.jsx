@@ -6,11 +6,15 @@ import AlternatingText from '../../AlternatingText';
 import './CustomHeader.scss';
 
 type Props = {
-  /** Props injected in by react-datepicker. */
+  /** Prop injected in by react-datepicker. */
   date: Date,
+  /** Prop injected in by react-datepicker. */
   decreaseMonth: boolean,
+  /** Prop injected in by react-datepicker. */
   increaseMonth: boolean,
+  /** Prop injected in by react-datepicker. */
   prevMonthButtonDisabled: boolean,
+  /** Prop injected in by react-datepicker. */
   nextMonthButtonDisabled: boolean
 }
 
@@ -28,16 +32,16 @@ const CustomHeader = (props: Props) => {
   const headerText = [month, year].join(' ');
 
   return (
-    <div className="react-datepicker__header-custom--navigation">
+    <div className="ac-datepicker__header-custom react-datepicker__header-custom--navigation d-flex justify-content-between">
       <ArrowLeftCircle
-        className="feather-24 arrow-hover-effect clickable primary-stroke"
+        className="feather-24 arrow-hover-effect clickable primary-stroke mx-4"
         onClick={decreaseMonth}
         disabled={prevMonthButtonDisabled}
         title="Previous Month"
       />
       <AlternatingText text={headerText} As="div" separator="&nbsp;" />
       <ArrowRightCircle
-        className="feather-24 arrow-hover-effect clickable primary-stroke"
+        className="feather-24 arrow-hover-effect clickable primary-stroke mx-4"
         onClick={increaseMonth}
         disabled={nextMonthButtonDisabled}
         title="Next Month"
@@ -45,5 +49,7 @@ const CustomHeader = (props: Props) => {
     </div>
   );
 };
+
+CustomHeader.displayName = 'CustomHeader';
 
 export default CustomHeader;
