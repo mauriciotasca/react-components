@@ -9,10 +9,10 @@ type Props = {
 };
 
 const Row = (props: Props) => {
-  const { classList, children } = props;
+  const { classList, children, ...rest } = props;
 
   return (
-    <div className={classNames('ac-row row', classList)}>{children}</div>
+    <div className={classNames('ac-row row', classList)} {...rest}>{children}</div>
   );
 };
 

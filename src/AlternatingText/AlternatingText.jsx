@@ -26,16 +26,17 @@ const AlternatingText = (props: Props) => {
     isReversed,
     classList,
     As,
+    ...rest
   } = props;
   const textArray = text.split(' ');
   const first = textArray.slice(0, splitAt).join(' ');
-  const rest = textArray.slice(splitAt).join(' ');
+  const remaining = textArray.slice(splitAt).join(' ');
 
   return (
-    <As className={classNames('ac-alternating-text', classList)}>
+    <As className={classNames('ac-alternating-text', classList)} {...rest}>
       <span className={`font-weight-${isReversed ? 'light' : 'bold'}`}>{first}</span>
       {separator}
-      <span className={`font-weight-${isReversed ? 'bold' : 'light'}`}>{rest}</span>
+      <span className={`font-weight-${isReversed ? 'bold' : 'light'}`}>{remaining}</span>
     </As>
   );
 };

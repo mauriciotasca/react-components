@@ -12,10 +12,22 @@ type Props = {
 };
 
 const Button = (props: Props) => {
-  const { classList, onClick, children } = props;
+  const {
+    classList,
+    onClick,
+    children,
+    ...rest
+  } = props;
 
   return (
-    <button type="button" className={classNames('ac-button', classList)} onClick={onClick}>{children}</button>
+    <button
+      type="button"
+      className={classNames('ac-button', classList)}
+      onClick={onClick}
+      {...rest}
+    >
+      {children}
+    </button>
   );
 };
 

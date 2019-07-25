@@ -1,4 +1,11 @@
-export { default as Table } from './Table';
-export TableHeader from './TableHeader';
-export TableBody from './TableBody';
-export TableRow from './TableRow';
+import Table from './Table';
+import TableHeader from './TableHeader';
+import TableBody from './TableBody';
+import TableRow from './TableRow';
+
+export default Table;
+export {
+  TableHeader,
+  TableBody,
+  TableRow,
+};

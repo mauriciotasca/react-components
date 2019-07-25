@@ -1,1 +1,3 @@
-export default from './AlternatingText';
+import AlternatingText from './AlternatingText';
+
+export default AlternatingText;

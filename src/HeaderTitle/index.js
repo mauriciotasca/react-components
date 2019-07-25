@@ -1,1 +1,3 @@
-export default from './HeaderTitle';
+import HeaderTitle from './HeaderTitle';
+
+export default HeaderTitle;

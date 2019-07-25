@@ -11,10 +11,15 @@ type Props = {
 };
 
 const HeaderTitle = (props: Props) => {
-  const { text, classList } = props;
+  const { text, classList, ...rest } = props;
 
   return (
-    <AlternatingText text={text} As="h2" classList={classNames('ac-header-title', classList)} />
+    <AlternatingText
+      text={text}
+      As="h2"
+      classList={classNames('ac-header-title', classList)}
+      {...rest}
+    />
   );
 };
 

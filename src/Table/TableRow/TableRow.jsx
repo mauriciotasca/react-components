@@ -13,7 +13,12 @@ type Props = {
 }
 
 const TableRow = (props: Props) => {
-  const { rowData, CustomTableRow, classList } = props;
+  const {
+    rowData,
+    CustomTableRow,
+    classList,
+    ...rest
+  } = props;
   const hasData = rowData && rowData.length > 0;
 
   return (
@@ -22,7 +27,7 @@ const TableRow = (props: Props) => {
         <CustomTableRow />
       ) : (
         hasData && (
-          <tr className={classNames('ac-table-row', classList)}>
+          <tr className={classNames('ac-table-row', classList)} {...rest}>
             { rowData.map(data => <td key={uuidv4()}>{data}</td>) }
           </tr>
         )

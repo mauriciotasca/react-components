@@ -1,1 +1,3 @@
-export default from './TableRow';
+import TableRow from './TableRow';
+
+export default TableRow;

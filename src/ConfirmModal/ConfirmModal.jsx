@@ -5,6 +5,7 @@ import { X, AlertTriangle } from 'react-feather';
 import Modal from '../Modal';
 import Button from '../Button';
 import AlternatingText from '../AlternatingText';
+import './style.scss';
 
 type Props = {
   /** Boolean describing if the modal should be shown or not. */

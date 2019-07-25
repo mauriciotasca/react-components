@@ -1,25 +1,44 @@
 Button component for Avenue Code.
+Returns a HTLM button element of type `button`. All default HTML button attributes also work. Pass them in as you would normally using React props.
 
-This component makes use of `Bootstrap button` styles in addition to `ac-ui` base styles (which includes Bootstrap SCSS variables, functions, and mixins).
-To apply styles, import `ac-ui` page styles and Bootstrap's button classes:
-  * `@import "~@ac-ui/design-system/src/page"`
+___
+#### **How do I style this component?**
+___
+This component uses `Bootstrap button` classes in addition to `ac-ui` base styles (which includes Bootstrap SCSS variables, functions, and mixins).
+To apply default styles, import Bootstrap classes:
   * `@import "~@ac-ui/design-system/src/bridge/buttons"`
   
 Thereafter, you can pass in Bootstrap classnames via the `classList` prop, include them as part of `children` nodes, or apply your own custom styles.
 
-Button content can be accessed using the classname `ac-button`.
+**Don't see the import for `ac-ui` base styles?**  
+That's because they're already included when importing `bridge`, no need to duplicate import!
 
-Example: Default
+___
+#### **How can I reference this component?**
+___
+This component can be accessed using the classname `ac-button` or displayname `Button`.
+
+___
+#### **How do I use this component?**
+___
+Below are some self-contained usage examples.
+
+**Example:** Default
 ```jsx
 <Button>Button text</Button>
 ```
 
-Example: Custom class
+**Example:** Apply Bootstrap button classes to style button.
 ```jsx
 <Button classList={['btn', 'btn-sm', 'btn-primary', 'btn-plain', 'btn-rounded']}>Button text</Button>
 ```
 
-Example: onClick handler
+**Example:** Add onClick Handler
 ```jsx
-<Button onClick={() => alert('Button alert.')}>Button text</Button>
+<Button onClick={() => alert('Button alert!')}>Button text</Button>
+```
+
+**Example:** Apply HTML button disabled attribute
+```jsx
+<Button disabled>Button text</Button>
 ```

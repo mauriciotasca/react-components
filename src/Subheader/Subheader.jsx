@@ -4,10 +4,11 @@ import classNames from 'classnames';
 import './style.scss';
 
 type Props = {
-  /** String, or FormattedMessage to display as Subheading */
+  /** String, or FormattedMessage to display as Subheading. */
   title: React.Element,
+  /** String, or FormattedMessage to display as additional information. */
   content?: React.Element,
-  /** Additional classNames to add to component */
+  /** Additional classNames to add to component. */
   classList?: string | Array<string>,
 }
 
@@ -16,10 +17,11 @@ const Subheader = (props: Props) => {
     title,
     content,
     classList,
+    ...rest
   } = props;
 
   return (
-    <div className={classNames('ac-subheader ac-subheader-wrapper', classList)}>
+    <div className={classNames('ac-subheader ac-subheader-wrapper', classList)} {...rest}>
       <div className="ac-subheader__section">
         <h3>
           { title }
