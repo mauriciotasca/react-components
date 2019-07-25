@@ -19,3 +19,7 @@
   height: map-get($spacers, 6);
   @extend .feather;
 }
+
+.clickable {
+  cursor: pointer;
+}
