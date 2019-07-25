@@ -47,7 +47,7 @@ const App = () => {
                 <div className="dropdown-item dropdown-menu-right ">
                   <div className="justify-content-center">
                     <p className="mb-0">Sign-in Button</p>
-                    <div class="dropdown-divider"></div>
+                    <div className="dropdown-divider"></div>
                     <small>This button does not actually work.</small>
                   </div>
                 </div>
@@ -65,7 +65,7 @@ const App = () => {
 ```
 
 ___
-#### **Modal with loading bar**
+#### **Modal with table and loading bar**
 ___
 **styles.scss**
 ```scss
