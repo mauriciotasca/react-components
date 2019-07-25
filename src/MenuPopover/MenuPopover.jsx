@@ -24,6 +24,7 @@ const MenuPopover = (props: Props) => {
     classList,
     children,
     alignment,
+    ...rest
   } = props;
 
   const wrapperEl = useRef(null);
@@ -46,7 +47,7 @@ const MenuPopover = (props: Props) => {
 
   return (
     isOpen && children && (
-      <div className={classNames('ac-menu-popover ac-menu-popover-wrapper', classList)} tabIndex={-1} ref={wrapperEl} onBlur={handleBlur}>
+      <div className={classNames('ac-menu-popover ac-menu-popover-wrapper', classList)} tabIndex={-1} ref={wrapperEl} onBlur={handleBlur} {...rest}>
         <div className={`ac-menu-popover__dropdown dropdown-menu d-block dropdown-menu-${alignment}`}>
           { <div className={`ac-menu-popover__arrow menu-popover__arrow--${alignment}`} /> }
           {children}

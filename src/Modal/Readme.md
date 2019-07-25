@@ -1,20 +1,29 @@
 Modal component for Avenue Code.
-This component is a custom wrapper around `react-modal` with preset configurations.
-When using the Modal component, remember to apply the `aria-hidden` attribute to your `App` component.
-It is important for screenreaders that other page content be hidden while the `Modal` is open.
+This component is a custom wrapper around `react-modal` with preset configurations. For a complete list of available props and configurations, refer to the [`react-modal` documentation](http://reactcommunity.org/react-modal/#usage).
+**When using the Modal component, remember to apply the `aria-hidden` attribute to your `App` component.**
+**It is important for screenreaders that other page content be hidden while the `Modal` is open.**
 
-There are 3 required props: `isOpen`, `onClose`, and `ariaAttributes`. Other props are optional.
-For a complete list of available props, refer to the `react-modal` [documentation](http://reactcommunity.org/react-modal/#usage).
-
-This component makes use of `Bootstrap modal` styles in addition to `ac-ui` base styles (which includes Bootstrap SCSS variables, functions, and mixins).
-To apply styles, import `ac-ui` page styles and Bootstrap's modal classes:
-  * `@import "~@ac-ui/design-system/src/page"`
+___
+#### **How do I style this component?**
+___
+This component uses `Bootstrap modal` classes in addition to `ac-ui` base styles (which includes Bootstrap SCSS variables, functions, and mixins).
+To apply default styles, import Bootstrap classes:
   * `@import "~@ac-ui/design-system/src/bridge/modal"`
   
 Thereafter, you can pass in Bootstrap classnames via the `classList` prop, include them as part of `children` nodes, or apply your own custom styles.
 
-Modal content can be accessed using the classname `ac-modal`.
+**Don't see the import for `ac-ui` base styles?**  
+That's because they're already included when importing `bridge`, no need to duplicate import!
 
+___
+#### **How can I reference this component?**
+___
+This component can be accessed using the classname `ac-modal` or displayname `Modal`.
+
+___
+#### **How do I use this component?**
+___
+**Example:** Default
 ```jsx
 import { useState } from 'react';
 import Button from '../Button';
@@ -22,7 +31,6 @@ import Button from '../Button';
 const ExampleModal = () => {
   const classes = ['custom', 'custom-modal'];
   const ariaAttributes = {
-    labelledby: 'heading',
     describedby: 'description',
   }
   const [isOpen, setOpen] = useState(false);
@@ -42,6 +50,7 @@ const ExampleModal = () => {
         isOpen={isOpen}
         onClose={handleClose}
         classList={classes}
+        contentLabel="Example Modal"
         ariaAttributes={ariaAttributes}
       >
         <div className="modal-content">

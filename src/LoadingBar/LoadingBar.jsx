@@ -11,17 +11,17 @@ type Props = {
 }
 
 const LoadingBar = (props:Props) => {
-  const { isLoading, classList } = props;
+  const { isLoading, classList, ...rest } = props;
 
   return (
     isLoading ? (
-      <div className={classNames('ac-loading-bar', classList)}>
+      <div className={classNames('ac-loading-bar', classList)} {...rest}>
         <div className="ac-loading-bar__is-loading ac-loading-bar__is-loading--blue" />
         <div className="ac-loading-bar__is-loading ac-loading-bar__is-loading--blue-light" />
         <div className="ac-loading-bar__is-loading ac-loading-bar__is-loading--blue-lighter" />
       </div>
     ) : (
-      <div className={classNames('ac-loading-bar ac-loading-bar--not-loading', classList)} />
+      <div className={classNames('ac-loading-bar ac-loading-bar--not-loading', classList)} {...rest} />
     )
   );
 };

@@ -14,7 +14,12 @@ type Props = {
 }
 
 const TableBody = (props: Props) => {
-  const { tableData, CustomTableBody, classList } = props;
+  const {
+    tableData,
+    CustomTableBody,
+    classList,
+    ...rest
+  } = props;
   const hasData = tableData && tableData.length > 0;
 
   return (
@@ -23,7 +28,7 @@ const TableBody = (props: Props) => {
         <CustomTableBody />
       ) : (
         hasData && (
-          <tbody className={classNames('ac-table-body', classList)}>
+          <tbody className={classNames('ac-table-body', classList)} {...rest}>
             { tableData.map(rowData => <TableRow key={uuidv4()} rowData={rowData} />) }
           </tbody>
         )

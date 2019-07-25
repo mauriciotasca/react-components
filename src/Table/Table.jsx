@@ -5,6 +5,8 @@ import TableHeader from './TableHeader';
 import TableBody from './TableBody';
 
 type Props = {
+  /** String or formatted message to display as caption for the table. */
+  caption?: React.Element,
   /** Array of column headings. */
   headerNames: Array<string>,
   /** 2D array of shape: `[[row1-value1, row1-value2], [row2-value1, row2-value2], ...]` */
@@ -21,10 +23,13 @@ const Table = (props: Props) => {
     tableData,
     CustomTableBody,
     classList,
+    caption,
+    ...rest
   } = props;
 
   return (
-    <table className={classNames('ac-table table table-bordered table-hover', classList)}>
+    <table className={classNames('ac-table table table-bordered table-hover', classList)} {...rest}>
+      <caption>{caption}</caption>
       <TableHeader headerNames={headerNames} />
       <TableBody tableData={tableData} CustomTableBody={CustomTableBody} />
     </table>
@@ -32,6 +37,7 @@ const Table = (props: Props) => {
 };
 
 Table.defaultProps = {
+  caption: null,
   tableData: [],
   CustomTableBody: null,
   classList: '',

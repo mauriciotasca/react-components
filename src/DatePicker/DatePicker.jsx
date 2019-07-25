@@ -6,6 +6,8 @@ import { CustomHeader, CustomInput, CustomTodayButton } from './utils';
 import 'react-datepicker/dist/react-datepicker.css';
 
 type Props = {
+  /** Selected date of calendar. */
+  selected: Date,
   /** Custom date format as String. `date-fns` is used internally for validating date formats.
    * Refer to the `date-fns` [documentation](https://date-fns.org/v1.30.1/docs/format) for valid formats. */
   dateFormat?: string,
@@ -29,11 +31,14 @@ type Props = {
    * to allow the datepicker to open.
    */
   customInput?: React.Element,
+  /** Use in conjunction with customInput to display custom calendar toggle button.
+   * If set to `true` while `customInput` is undefined, the built-in customInput will be used. */
+  useCustomInput?: boolean,
   /** Additional classNames to add to the calendar component. */
   calendarClassList?: string | Array<string>,
   /** Additional classNames to add to the input/toggle component. */
   inputClassList?: string | Array<string>,
-  /** Function called when date value changes. */
+  /** Function called when date value changes. Returns a date object. */
   onChange: Function,
 }
 
@@ -43,19 +48,25 @@ const DatePicker = (props: Props) => {
     customTodayButton,
     calendarClassList,
     inputClassList,
+    customInput,
+    useCustomInput,
     ...rest
   } = props;
 
-  const DatePickerProps = {
-    renderCustomHeader: customHeader,
-    todayButton: customTodayButton,
-    className: classNames('ac-datepicker__input', inputClassList),
-    calendarClassName: classNames('ac-datepicker', calendarClassList),
-    ...rest,
-  };
+  let DatePickerProps = { ...rest };
+
+  if (useCustomInput) {
+    DatePickerProps = { ...DatePickerProps, customInput };
+  }
 
   return (
-    <ReactDatePicker {...DatePickerProps} />
+    <ReactDatePicker
+      renderCustomHeader={customHeader}
+      todayButton={customTodayButton}
+      className={classNames('ac-datepicker__input', inputClassList)}
+      calendarClassName={classNames('ac-datepicker', calendarClassList)}
+      {...DatePickerProps}
+    />
   );
 };
 
@@ -65,6 +76,7 @@ DatePicker.defaultProps = {
   customTodayButton: <CustomTodayButton>Today</CustomTodayButton>,
   customHeader: CustomHeader,
   customInput: <CustomInput />,
+  useCustomInput: false,
   calendarClassList: '',
   inputClassList: '',
 };

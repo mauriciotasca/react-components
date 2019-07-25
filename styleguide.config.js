@@ -1,10 +1,13 @@
+const path = require('path');
 const webpackConfig = require('./webpack.styleguide.js');
 
 module.exports = {
-  title: 'AC Design',
+  title: 'Components Library',
+  version: '1.0.0',
   components: [
     'src/**/[A-Z]*.jsx',
     'templates/**/[A-Z]*.jsx',
+    'examples/**/[A-Z]*.jsx',
   ],
   require: [
     './src/style.scss',
@@ -12,7 +15,7 @@ module.exports = {
   defaultExample: true,
   showSidebar: true,
   usageMode: 'expand',
-  exampleMode: 'expand',
+  exampleMode: 'collapse',
   webpackConfig,
   theme: {
     color: {
@@ -49,4 +52,10 @@ module.exports = {
     '**/*.spec.js',
   ],
   skipComponentsWithoutExample: true,
+  // Override Styleguidist components
+  styleguideComponents: {
+    LogoRenderer: path.join(__dirname, 'styleguide/LogoRenderer'),
+    VersionRenderer: path.join(__dirname, 'styleguide/VersionRenderer'),
+  },
+  pagePerSection: true,
 };

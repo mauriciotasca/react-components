@@ -1,16 +1,24 @@
 LoadingBar component for Avenue Code.
-Loading bar is activated when `isLoading` is set to `true`.
+The loading animation is activated when `isLoading` is set to `true`.
 
-This component makes use of `ac-ui` base styles (which includes Bootstrap SCSS variables, functions, and mixins).
-To apply styles, import `ac-ui` page and base styles:
-  * `@import "~@ac-ui/design-system/src/page"`
+___
+#### **How do I style this component?**
+___
+This component uses `ac-ui` base styles (which includes Bootstrap SCSS variables, functions, and mixins).
+To apply default styles, import `ac-ui` base style:
   * `@import "~@ac-ui/design-system/src/base"`
   
 Thereafter, you can pass in Bootstrap classnames via the `classList` prop or apply your own custom styles.
 
-LoadingBar content can be accessed using the classname `ac-loading-bar`.
+___
+#### **How can I reference this component?**
+___
+This component can be accessed using the classname `ac-loading-bar` or displayname `LoadingBar`.
 
-Example:
+___
+#### **How do I use this component?**
+___
+**Example:** Default
 ```jsx
 import { useState } from 'react';
 import Button from '../Button';

@@ -6,7 +6,7 @@ A React Component library
 - Install as a npm dependency `npm i git+ssh://git@gitlab.com:acbr/internal/ac-ui/react-components.git`
 - Import component
     - ```jsx harmony
-      import { Subheader } from '@ac-ui/react-components';
+      import { Subheader } from '~@ac-ui/react-components';
       
       const Example = () => <Subheader title={"Subheader example"}/> 
       ```
@@ -44,6 +44,3 @@ linting and pre-commit hooks have been added in to the repository.
         - Is there one close to it? Use that.
         - Is it going to be used only in this component? Initiate variable there
         - Is it only going to be used in many files? Add it to `@ac-ui/design-system`
-
-        
-        

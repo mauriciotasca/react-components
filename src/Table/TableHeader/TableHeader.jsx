@@ -10,11 +10,11 @@ type Props = {
 }
 
 const TableHeader = (props: Props) => {
-  const { headerNames, classList } = props;
+  const { headerNames, classList, ...rest } = props;
   const hasHeaders = headerNames && headerNames.length > 0;
 
   return (
-    <thead className={classNames('ac-table-header text-center text-uppercase font-weight-bold', classList)}>
+    <thead className={classNames('ac-table-header text-center text-uppercase font-weight-bold', classList)} {...rest}>
       { hasHeaders && (
         <tr>
           { headerNames.map(headerName => (

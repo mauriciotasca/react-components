@@ -1,1 +1,3 @@
-export default from './TableBody';
+import TableBody from './TableBody';
+
+export default TableBody;
