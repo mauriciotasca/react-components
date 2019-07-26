@@ -6,7 +6,9 @@ ___
 ___
 This component uses `Bootstrap button` classes in addition to `ac-ui` base styles (which includes Bootstrap SCSS variables, functions, and mixins).
 To apply default styles, import Bootstrap classes:
-  * `@import "~@ac-ui/design-system/src/bridge/buttons"`
+```scss
+@import "~@ac-ui/design-system/src/bridge/buttons";
+```
   
 Thereafter, you can pass in Bootstrap classnames via the `classList` prop, include them as part of `children` nodes, or apply your own custom styles.
 

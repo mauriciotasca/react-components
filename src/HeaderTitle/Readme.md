@@ -6,7 +6,9 @@ ___
 ___
 This component uses `Bootstrap utility` classes in addition to `ac-ui` base styles (which includes Bootstrap SCSS variables, functions, and mixins).
 To apply default styles, import Bootstrap classes:
-  * `@import "~@ac-ui/design-system/bridge/utilities"`
+```scss
+@import "~@ac-ui/design-system/bridge/utilities";
+```
   
 Thereafter, you can pass in Bootstrap classnames via the `classList` prop or apply your own custom styles.
 

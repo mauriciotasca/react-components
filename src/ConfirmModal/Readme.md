@@ -8,9 +8,11 @@ ___
 ___
 This component uses `Bootstrap modal`, `button`, `utility` classes in addition to `ac-ui` base styles (which includes Bootstrap SCSS variables, functions, and mixins).
 To apply default styles, import Bootstrap classes:
-  * `@import "~@ac-ui/design-system/src/bridge/modal"`
-  * `@import "~@ac-ui/design-system/src/bridge/buttons"`
-  * `@import "~@ac-ui/design-system/src/bridge/utilities"`
+```scss
+@import "~@ac-ui/design-system/src/bridge/modal";
+@import "~@ac-ui/design-system/src/bridge/buttons";
+@import "~@ac-ui/design-system/src/bridge/utilities";
+```
   
 Thereafter, you can pass in Bootstrap classnames via the `classList` prop, include them as part of `children` nodes, or apply your own custom styles.
 

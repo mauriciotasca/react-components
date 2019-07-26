@@ -6,7 +6,9 @@ ___
 ___
 This component uses `ac-ui` base styles (which includes Bootstrap SCSS variables, functions, and mixins).
 To apply default styles, import `ac-ui` base style:
-  * `@import "~@ac-ui/design-system/src/base"`
+```scss
+@import "~@ac-ui/design-system/src/base";
+```
   
 Thereafter, you can pass in Bootstrap classnames via the `classList` prop or apply your own custom styles.
 

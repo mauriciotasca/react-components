@@ -11,7 +11,9 @@ ___
 ___
 This component uses `Bootstrap form` classes in addition to `ac-ui` base styles (which includes Bootstrap SCSS variables, functions, and mixins).
 To apply default styles, import Bootstrap classes:
-  * `@import "~@ac-ui/design-system/src/bridge/forms"`
+```scss
+@import "~@ac-ui/design-system/src/bridge/forms";
+```
   
 Thereafter, you can pass in Bootstrap classnames via the `classList` prop or apply your own custom styles.
 

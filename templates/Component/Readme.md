@@ -24,12 +24,16 @@ ___
 **Completely custom element?**
 
 Import the variables, mixins, and helpers all in one go
-  * `@import "~@ac-ui/design-system/src/base"`
+```scss
+@import "~@ac-ui/design-system/src/base";
+```
 
 **Is it built around a TWBS Component**
 
 Import the 'bridge', which imports variables, helpers, and utility classes for the component
-  * `@import "~@ac-ui/design-system/src/bridge/buttons"`
+```scss
+@import "~@ac-ui/design-system/src/bridge/buttons";
+```
 
 **Always style using variables, and TWBS where possible!**
 
