@@ -1,0 +1,84 @@
+@import 'variables';
+
+@mixin today {
+  position: relative;
+  font-weight: 700;
+  color: $datepicker__selected-color;
+  &::after {
+    position: absolute;
+    bottom: 2px;
+    left: 2px;
+    display: block;
+    width: 25px;
+    height: 2px;
+    content: '';
+    background-color: $datepicker__selected-color;
+    border-radius: 2px;
+  }
+}
+
+@mixin today-colors {
+  color: $datepicker__selected-color;
+  &::after {
+    background-color: $datepicker__selected-color;
+  }
+}
+
+%triangle-arrow {
+  position: absolute;
+  margin-left: -$datepicker__triangle-size;
+
+  &,
+  &::before {
+    position: absolute;
+    box-sizing: content-box;
+    width: 1px;
+
+    height: 0;
+    border: $datepicker__triangle-size solid transparent;
+  }
+
+  &::before {
+    left: -$datepicker__triangle-size;
+    z-index: -1;
+    content: '';
+    border-width: $datepicker__triangle-size;
+    border-bottom-color: $datepicker__border-color;
+  }
+}
+
+%triangle-arrow-up {
+  @extend %triangle-arrow;
+
+  top: 0;
+  margin-top: -$datepicker__triangle-size;
+
+  &,
+  &::before {
+    border-top: none;
+    border-bottom-color: $datepicker__background-color;
+  }
+
+  &::before {
+    top: -1px;
+    border-bottom-color: $datepicker__border-color;
+  }
+}
+
+%triangle-arrow-down {
+  @extend %triangle-arrow;
+
+  bottom: 0;
+  margin-bottom: -$datepicker__triangle-size;
+
+  &,
+  &::before {
+    border-top-color: $datepicker__background-color;
+    border-bottom: none;
+  }
+
+  &::before {
+    bottom: -1px;
+    border-top-color: $datepicker__border-color;
+  }
+}

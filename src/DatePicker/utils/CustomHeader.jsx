@@ -32,16 +32,16 @@ const CustomHeader = (props: Props) => {
   const headerText = [month, year].join(' ');
 
   return (
-    <div className="ac-datepicker__header-custom react-datepicker__header-custom--navigation d-flex justify-content-between">
+    <div className="ac-datepicker__header-custom react-datepicker__header-custom--navigation">
       <ArrowLeftCircle
-        className="feather-24 arrow-hover-effect clickable primary-stroke mx-4"
+        className="feather-24 arrow-hover-effect clickable primary-stroke"
         onClick={decreaseMonth}
         disabled={prevMonthButtonDisabled}
         title="Previous Month"
       />
       <AlternatingText text={headerText} As="div" separator="&nbsp;" />
       <ArrowRightCircle
-        className="feather-24 arrow-hover-effect clickable primary-stroke mx-4"
+        className="feather-24 arrow-hover-effect clickable primary-stroke"
         onClick={increaseMonth}
         disabled={nextMonthButtonDisabled}
         title="Next Month"

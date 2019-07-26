@@ -1,0 +1,22 @@
+@import '~@ac-ui/design-system/src/theme';
+
+$datepicker__background-color: $brand-white !default;
+$datepicker__border-color: $brand-gray-light !default;
+$datepicker__highlighted-color: $brand-blue-lighter !default;
+$datepicker__muted-color: $brand-gray-lighter !default;
+$datepicker__selected-color: $primary !default;
+$datepicker__text-color: $brand-black !default;
+$datepicker__header-color: $brand-black !default;
+$datepicker__navigation-disabled-color: lighten(
+  $datepicker__muted-color,
+  10%
+) !default;
+
+$datepicker__border-radius: 4px !default;
+$datepicker__day-margin: 0 !default;
+$datepicker__font-size: 14px !default;
+$datepicker__font-family: $font-family-sans-serif !default;
+$datepicker__item-size: 30px !default;
+$datepicker__margin: 4px !default;
+$datepicker__navigation-size: 4px !default;
+$datepicker__triangle-size: 8px !default;

@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDatePicker from 'react-datepicker';
 import classNames from 'classnames';
 import { CustomHeader, CustomInput, CustomTodayButton } from './utils';
-import 'react-datepicker/dist/react-datepicker.css';
+import './styles/style.scss';
 
 type Props = {
   /** Selected date of calendar. */
