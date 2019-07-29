@@ -4,9 +4,12 @@ import classNames from 'classnames';
 import './style.scss';
 
 type Props = {
+  /** Menu popover toggle button. This element/component should contain an onClick callback that
+   * controls the open/close state of the popover. */
+  toggle: React.Element,
   /** Boolean describing if the modal should be shown or not. */
   isOpen: boolean,
-  /** Function that will be run when popover focus is lost. */
+  /** Callback function invoked when popover focus is lost. */
   onClose: Function,
   /** Content displayed in popover when it's open  */
   children: React.Element,
@@ -14,7 +17,7 @@ type Props = {
   classList?: string | Array<string>,
   /** Alignmnet of popover with respect to toggle button.
    * Accepted values are `left` and `right`. Default is `left`.  */
-  alignment?: String,
+  alignment?: string,
 }
 
 const MenuPopover = (props: Props) => {
@@ -24,6 +27,7 @@ const MenuPopover = (props: Props) => {
     classList,
     children,
     alignment,
+    toggle,
     ...rest
   } = props;
 
@@ -46,14 +50,16 @@ const MenuPopover = (props: Props) => {
   });
 
   return (
-    isOpen && children && (
-      <div className={classNames('ac-menu-popover ac-menu-popover-wrapper', classList)} tabIndex={-1} ref={wrapperEl} onBlur={handleBlur} {...rest}>
-        <div className={`ac-menu-popover__dropdown dropdown-menu d-block dropdown-menu-${alignment}`}>
-          { <div className={`ac-menu-popover__arrow menu-popover__arrow--${alignment}`} /> }
+    <div className={classNames('ac-menu-popover menu-popover-wrapper btn-group', classList)} tabIndex={-1} ref={wrapperEl} onBlur={handleBlur} {...rest}>
+      {toggle}
+
+      { isOpen && children && (
+        <div className={`ac-menu-popover__dropdown dropdown-menu d-block dropdown-menu-${alignment}`} aria-labelledby={toggle && wrapperEl.current.firstChild.id}>
+          { <div className={`ac-menu-popover__arrow ac-menu-popover__arrow--${alignment}`} /> }
           {children}
         </div>
-      </div>
-    )
+      )}
+    </div>
   );
 };
 

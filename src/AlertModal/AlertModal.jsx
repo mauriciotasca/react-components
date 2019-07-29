@@ -17,7 +17,7 @@ type Props = {
   /** String or FormattedMessage to display as Alert content/discription. */
   description: string | React.Element,
   /** String className or Array of String classNames to be applied to the modal content. */
-  classList?: tring | Array<string>,
+  classList?: string | Array<string>,
   /** String to display as the confirm button text. */
   buttonLabel?: string,
   /** React component to display as icon. Default is a frown icon. */
