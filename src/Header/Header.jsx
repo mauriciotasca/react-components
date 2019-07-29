@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import { Menu } from 'react-feather';
 import classNames from 'classnames';
