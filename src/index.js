@@ -5,6 +5,7 @@ import ConfrimModal from './ConfirmModal';
 import CustomSelect from './CustomSelect';
 import DatePicker from './DatePicker';
 import HeaderTitle from './HeaderTitle';
+import Header from './Header';
 import LoadingBar from './LoadingBar';
 import MenuPopover from './MenuPopover';
 import Modal from './Modal';
@@ -21,6 +22,7 @@ export {
   CustomSelect,
   DatePicker,
   HeaderTitle,
+  Header,
   LoadingBar,
   MenuPopover,
   Modal,

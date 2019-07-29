@@ -1,14 +1,18 @@
 MenuPopover component for Avenue Code.
-**Improve accessibility of this component by adding ARIA attributes (`aria-haspopup`, `aria-expanded`, etc) to the MenuPopover toggle.**
 
+**Improve accessibility of this component by:** 
+  * Adding ARIA attributes (`aria-haspopup`, `aria-expanded`, etc) to the MenuPopover toggle.
+  * Giving the toggle button an `id` that will be assigned to the `aria-labelledby` attribute by the dropdown menu.
+  * Assigning the `'dropdown-item'` class to each MenuPopover child to enable standard keyboard menu interactions.
 ___
 #### **How do I style this component?**
 ___
-This component uses `Bootstrap dropdown` and `utility` classes in addition to `ac-ui` base styles (which includes Bootstrap SCSS variables, functions, and mixins).
+This component uses `Bootstrap dropdown`, `button-group`, and `utility` classes in addition to `ac-ui` base styles (which includes Bootstrap SCSS variables, functions, and mixins).
 To apply default styles, import Bootstrap classes:
 ```scss
 @import "~@ac-ui/design-system/src/bridge/utilities";
 @import "~@ac-ui/design-system/src/bridge/dropdown";
+@import "~@ac-ui/design-system/src/bridge/button-group";
 ```
   
 Thereafter, you can pass in Bootstrap classnames via the `classList` prop, include them as part of `children` nodes, or apply your own custom styles.
@@ -34,32 +38,28 @@ import Button from '../Button';
 const ExampleMenuPopover = () => {
   const [isOpen, setOpen] = useState(false);
 
-  const handleClick = () => {
-    setOpen(!isOpen);
-  }
-
-  const handleClose = () => {
-    setOpen(false);
-  }
+  const handleClick = () => setOpen(!isOpen);
+  const handleClose = () => setOpen(false);
+  const Toggle = () => (
+    <Button
+      classList="menu-popover-button"
+      id="popover-toggle"
+      onClick={handleClick}
+      data-toggle="dropdown"
+      aria-haspopup="true"
+      aria-expanded={isOpen}
+    >
+      Open Popover
+    </Button>
+  )
 
   return (
-    <>
-      <Button
-        classList="menu-popover-button"
-        onClick={handleClick}
-        data-toggle="dropdown"
-        aria-haspopup="true"
-        aria-expanded={isOpen}
-      >
-        Open Popover
-      </Button>
-      <MenuPopover isOpen={isOpen} onClose={handleClose}>
-        <div className="text-white">
-          <p>John Appleseed</p>
-          <small>jappleseed@avenuecode.com</small>
-        </div>
-      </MenuPopover>
-    </>
+    <MenuPopover isOpen={isOpen} onClose={handleClose} toggle={<Toggle />}>
+      <div className="dropdown-item text-white">
+        <p>John Appleseed</p>
+        <small>jappleseed@avenuecode.com</small>
+      </div>
+    </MenuPopover>
   )
 }
 
@@ -74,32 +74,28 @@ import Button from '../Button';
 const ExampleMenuPopover = () => {
   const [isOpen, setOpen] = useState(false);
 
-  const handleClick = () => {
-    setOpen(!isOpen);
-  }
-
-  const handleClose = () => {
-    setOpen(false);
-  }
+  const handleClick = () => setOpen(!isOpen);
+  const handleClose = () => setOpen(false);
+  const Toggle = () => (
+    <Button
+      classList="menu-popover-button"
+      id="popover-toggle"
+      onClick={handleClick}
+      data-toggle="dropdown"
+      aria-haspopup="true"
+      aria-expanded={isOpen}
+    >
+      Open Popover
+    </Button>
+  )
 
   return (
-    <>
-      <Button
-        classList="menu-popover-button"
-        onClick={handleClick}
-        data-toggle="dropdown"
-        aria-haspopup="true"
-        aria-expanded={isOpen}
-      >
-        Open Popover
-      </Button>
-      <MenuPopover isOpen={isOpen} onClose={handleClose} alignment="right">
-        <div className="text-white">
-          <p>John Appleseed</p>
-          <small>jappleseed@avenuecode.com</small>
-        </div>
-      </MenuPopover>
-    </>
+    <MenuPopover isOpen={isOpen} onClose={handleClose} toggle={<Toggle />} alignment="right">
+      <div className="dropdown-item text-white">
+        <p>John Appleseed</p>
+        <small>jappleseed@avenuecode.com</small>
+      </div>
+    </MenuPopover>
   )
 }
 
@@ -114,34 +110,31 @@ import Button from '../Button';
 const ExampleMenuPopover = () => {
   const [isOpen, setOpen] = useState(false);
 
-  const handleClick = () => {
-    setOpen(!isOpen);
-  }
-
-  const handleClose = () => {
-    setOpen(false);
-  }
+  const handleClick = () => setOpen(!isOpen);
+  const handleClose = () => setOpen(false);
+  const Toggle = () => (
+    <Button
+      classList="menu-popover-button"
+      id="popover-toggle"
+      onClick={handleClick}
+      data-toggle="dropdown"
+      aria-haspopup="true"
+      aria-expanded={isOpen}
+    >
+      Open Popover
+    </Button>
+  )
 
   return (
-    <>
-      <Button
-        classList="menu-popover-button"
-        onClick={handleClick}
-        data-toggle="dropdown"
-        aria-haspopup="true"
-        aria-expanded={isOpen}
-      >
-        Open Popover
-      </Button>
-      <MenuPopover isOpen={isOpen} onClose={handleClose}>
-        <div className="dropdown-item dropdown-menu-right ">
-          <div className="justify-content-center">
-            <p className="mb-0">John Appleseed</p>
-            <small>jappleseed@avenuecode.com</small>
-          </div>
+    <MenuPopover isOpen={isOpen} onClose={handleClose} toggle={<Toggle />}>
+      <div className="dropdown-item">
+        <div className="justify-content-center">
+          <p className="mb-0">John Appleseed</p>
+          <div className="dropdown-divider" />
+          <small>jappleseed@avenuecode.com</small>
         </div>
-      </MenuPopover>
-    </>
+      </div>
+    </MenuPopover>
   )
 }
 
