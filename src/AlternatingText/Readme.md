@@ -27,30 +27,36 @@ Below are some self-contained usage examples.
 
 **Example:** Default
 ```jsx
-<AlternatingText text="里îßPseudo language is preferred in tests里îß"/>
+<AlternatingText text="里îßPseudo language is preferred in tests里îß" />
+```
+
+**Example:** Use array input
+```jsx
+const textArray = ['里îßPseudo', 'language', 'is', 'preferred', 'in', 'tests里îß'];
+<AlternatingText text={textArray} />
 ```
 
 **Example:** Custom separator
 ```jsx
-<AlternatingText text="里îßPseudo language is preferred in tests里îß" separator={' --> '}/>
+<AlternatingText text="里îßPseudo language is preferred in tests里îß" separator={' --> '} />
 ```
 
 **Example:** Reversed styling
 ```jsx
-<AlternatingText text="里îßPseudo language is preferred in tests里îß" isReversed={true}/>
+<AlternatingText text="里îßPseudo language is preferred in tests里îß" isReversed={true} />
 ```
 
 **Example:** Apply Bootstrap utility class to right-align text.
 ```jsx
-<AlternatingText text="里îßPseudo language is preferred in tests里îß" classList="text-right"/>
+<AlternatingText text="里îßPseudo language is preferred in tests里îß" classList="text-right" />
 ```
 
 **Example:** Custom split location
 ```jsx
-<AlternatingText text="里îßPseudo language is preferred in tests里îß" splitAt={3}/>
+<AlternatingText text="里îßPseudo language is preferred in tests里îß" splitAt={3} />
 ```
 
 **Example:** Custom return type (`<mark>`)
 ```jsx
-<AlternatingText text="里îßPseudo language is preferred in tests里îß" As={'mark'}/>
+<AlternatingText text="里îßPseudo language is preferred in tests里îß" As={'mark'} />
 ```

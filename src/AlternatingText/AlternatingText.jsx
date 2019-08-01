@@ -1,10 +1,11 @@
 // @flow
-import * as React from 'react';
+import React from 'react';
 import classNames from 'classnames';
+import type { Node } from 'react';
 
 type Props = {
-  /** String to convert to alternating text. */
-  text: string,
+  /** String or Array of FormattedMessage to convert to alternating text. */
+  text: string | Array<Node>,
   /** Location where to split the styling for the text. 1 corresponds to the first word,
    * 2 to the second word, and so on. */
   splitAt?: number,
@@ -28,9 +29,19 @@ const AlternatingText = (props: Props) => {
     As,
     ...rest
   } = props;
-  const textArray = text.split(' ');
-  const first = textArray.slice(0, splitAt).join(' ');
-  const remaining = textArray.slice(splitAt).join(' ');
+
+  let textArray;
+  let first;
+  let remaining;
+
+  if (Array.isArray(text)) {
+    first = text.splice(0, 1);
+    remaining = text;
+  } else {
+    textArray = text.split(' ');
+    first = textArray.slice(0, splitAt).join(' ');
+    remaining = textArray.slice(splitAt).join(' ');
+  }
 
   return (
     <As className={classNames('ac-alternating-text', classList)} {...rest}>
