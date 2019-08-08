@@ -1,14 +1,13 @@
 module.exports = {
   arrowParens: 'avoid',
-  bracketSpacing: false,
   endOfLine: 'lf',
   jsxBracketSameLine: false,
   singleQuote: true,
-  trailingComma: 'all',
+  trailingComma: 'none',
   overrides: [
     {
       files: '*.scss',
-      options: { parser: 'scss' },
-    },
-  ],
+      options: { parser: 'scss' }
+    }
+  ]
 };

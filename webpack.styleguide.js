@@ -9,38 +9,38 @@ module.exports = {
             loader: 'css-loader',
             options: {
               importLoaders: 1,
-              modules: false,
-            },
+              modules: false
+            }
           },
           {
             loader: 'resolve-url-loader',
             options: {
-              keepQuery: true,
-            },
+              keepQuery: true
+            }
           },
           {
             loader: 'sass-loader',
             options: {
               sourceMap: true,
-              sourceMapContents: false,
-            },
-          },
-        ],
+              sourceMapContents: false
+            }
+          }
+        ]
       },
       {
         test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
         use: [
           {
             loader: 'file-loader',
-            options: { name: '[path][name].[ext]' },
-          },
-        ],
+            options: { name: '[path][name].[ext]' }
+          }
+        ]
       },
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        use: 'babel-loader',
-      },
-    ],
-  },
+        use: 'babel-loader'
+      }
+    ]
+  }
 };

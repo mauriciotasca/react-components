@@ -21,7 +21,9 @@ module.exports = {
     }
   ],
   rules: {
+    'import/prefer-default-export': 'off',
     'import/no-dynamic-require': 0,
+    'comma-dangle': 'off',
     'react/destructuring-assignment': 0,
     'react/jsx-one-expression-per-line': 'off',
   },

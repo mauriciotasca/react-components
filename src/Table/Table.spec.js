@@ -1,6 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Table from './Table';
+// eslint-disable-next-line import/no-unresolved
 import { CustomTableBody } from './examples';
 
 const headerNames = ['Name', 'Billable Hours', 'Total Pay'];

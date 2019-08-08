@@ -1,6 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import TableBody from './TableBody';
+// eslint-disable-next-line import/no-unresolved
 import { CustomTableBody } from '../examples';
 
 describe('Component', () => {

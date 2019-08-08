@@ -1,6 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import TableRow from './TableRow';
+// eslint-disable-next-line import/no-unresolved
 import { CustomTableRow } from '../examples';
 
 describe('Component', () => {
