@@ -30,7 +30,7 @@
     "component:stub": "./node_modules/.bin/copyfiles -a -V --up 2 ./templates/Component/* ./src/Component.scratch/"
   },
   "dependencies": {
-    "@ac-ui/design-system": "git+ssh://git@gitlab.com:acbr/internal/ac-ui/design-system.git",
+    "@ac-ui/design-system": "git+https://ac-sales-ui:e8KcdxFAThA6yZyB6mY-@gitlab.com/acbr/internal/ac-ui/design-system.git",
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.2.0",
     "@babel/plugin-proposal-export-default-from": "^7.2.0",
