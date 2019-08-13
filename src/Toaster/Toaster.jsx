@@ -55,10 +55,10 @@ class Toaster extends PureComponent<Props, State> {
     const documentScrollTop = document.documentElement.scrollTop;
     const scrollTop = bodyScrollTop || documentScrollTop;
 
-    if (scrollTop >= topOffset) {
-      this.setState({ toasterTopPosition: scrollTop });
+    if (scrollTop <= topOffset) {
+      this.setState({ toasterTopPosition: topOffset - scrollTop });
     } else {
-      this.setState({ toasterTopPosition: topOffset });
+      this.setState({ toasterTopPosition: 0 });
     }
   };
 
@@ -110,45 +110,49 @@ class Toaster extends PureComponent<Props, State> {
     return (
       <div
         style={{ top: toasterTopPosition }}
-        className={`d-flex  ac-toaster ${
-          visible ? 'show' : 'hide'
-        } ${classNames}`}
+        className="ac-toaster-container"
       >
-        <div className="d-flex p-3 justify-content-center align-items-center p-4">
-          {CustomIcon ? (
-            <CustomIcon className="feather-24" />
-          ) : (
-            <small>Look!!</small>
-          )}
-        </div>
-
-        <div className="d-flex flex-column w-100">
-          <div className="d-flex justify-content-between pr-3 pt-3 w-100">
-            <p className="p-0 m-0 font-weight-bold">{title}</p>
-
-            {/* eslint-disable-next-line operator-linebreak */}
-            {hasCloseIcon &&
-              (CloseIcon ? (
-                <CloseIcon
-                  onClick={this.onCloseIconClick}
-                  className="feather-16 clickable"
-                />
-              ) : (
-                <small
-                  tabIndex={-1}
-                  role="button"
-                  onKeyPress={() => {}}
-                  className="clickable"
-                  onClick={this.onCloseIconClick}
-                >
-                  Close
-                </small>
-              ))}
+        <div
+          className={`d-flex  ac-toaster ${
+            visible ? 'show' : 'hide'
+          } ${classNames}`}
+        >
+          <div className="d-flex p-3 justify-content-center align-items-center p-4">
+            {CustomIcon ? (
+              <CustomIcon className="feather-24" />
+            ) : (
+              <small>Look!!</small>
+            )}
           </div>
 
-          <small className="p-0 pb-3 pr-3 m-0 font-weight-light">
-            {subtitle}
-          </small>
+          <div className="d-flex flex-column w-100">
+            <div className="d-flex justify-content-between pr-3 pt-3 w-100">
+              <p className="p-0 m-0 font-weight-bold">{title}</p>
+
+              {/* eslint-disable-next-line operator-linebreak */}
+              {hasCloseIcon &&
+                (CloseIcon ? (
+                  <CloseIcon
+                    onClick={this.onCloseIconClick}
+                    className="feather-16 clickable"
+                  />
+                ) : (
+                  <small
+                    tabIndex={-1}
+                    role="button"
+                    onKeyPress={() => {}}
+                    className="clickable"
+                    onClick={this.onCloseIconClick}
+                  >
+                    Close
+                  </small>
+                ))}
+            </div>
+
+            <small className="p-0 pb-3 pr-3 m-0 font-weight-light">
+              {subtitle}
+            </small>
+          </div>
         </div>
       </div>
     );
