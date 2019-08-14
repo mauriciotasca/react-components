@@ -1,5 +1,5 @@
 #!groovy
-library 'shared-pipeline-template'
+library 'pipeline-ui'
 
 configureSlack('#acdc-ui')
 
