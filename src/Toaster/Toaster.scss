@@ -1,0 +1,27 @@
+@import '~@ac-ui/design-system/src/theme';
+
+.ac-toaster-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  box-sizing: border-box;
+  max-height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  .ac-toaster {
+    z-index: 3;
+    width: 320px;
+    color: $black;
+    background-color: $brand-pure-gray-light;
+    transition: transform 400ms;
+
+    &.hide {
+      transform: translateX(100%);
+    }
+
+    &.show {
+      transform: translateX(0);
+    }
+  }
+}

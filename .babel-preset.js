@@ -12,6 +12,7 @@ const presets = [
   "@babel/preset-flow"
 ];
 const plugins = [
+  "@babel/plugin-proposal-class-properties",
   "@babel/plugin-proposal-export-default-from",
   "@babel/transform-runtime"
 ];

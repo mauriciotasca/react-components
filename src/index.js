@@ -12,7 +12,7 @@ import Modal from './Modal';
 import Row from './Row';
 import Subheader from './Subheader';
 import Table, { TableHeader, TableBody, TableRow } from './Table';
-
+import { Toaster } from './Toaster';
 
 export {
   AlertModal,
@@ -32,4 +32,5 @@ export {
   TableHeader,
   TableBody,
   TableRow,
+  Toaster
 };
