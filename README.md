@@ -25,12 +25,12 @@ linting and pre-commit hooks have been added in to the repository.
 
 **What does a component need to have**
 - A component only needs to have:
-    - `index.js`
+    - `index.js` (with the following content `export{ default as ComponentName } from './ComponentName' `)
     - `ComponentName.jsx`
 - As nice to haves
-    - `Readme.md` to enhance component in Styleguidist
+    - `ComponentName.md` to enhance component in Styleguidist
     - `ComponentName.spec.js` because unit testing is always smart
-    - `style.scss` to style things
+    - `ComponentName.scss` to style things
 
 **How do I style a component?**
 - Completely custom element?
