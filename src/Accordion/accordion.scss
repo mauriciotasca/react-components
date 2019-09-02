@@ -1,0 +1,26 @@
+.ac-accordion {
+  overflow: hidden;
+
+  .accordion-animation-enter {
+    height: 0;
+    transition: height 400ms;
+
+    &.accordion-animation-enter-active {
+      height: 150px;
+    }
+  }
+
+  .accordion-animation-enter-done {
+    max-height: 150px;
+    overflow: scroll;
+  }
+
+  .accordion-animation-exit {
+    height: 150px;
+    transition: height 400ms;
+
+    &.accordion-animation-exit-active {
+      height: 0;
+    }
+  }
+}
