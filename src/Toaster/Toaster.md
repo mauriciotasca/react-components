@@ -41,11 +41,11 @@ initialState = {
    visible={state.visible}
    title={state.title}
    subtitle={state.subtitle}
-   hasCloseIcon
+   hasCloseIcon={state.hasCloseIcon}
    topOffset={0}
    closeIcon={CloseIcon}
    icon={CheckIcon}
-   classNames="bg-success text-white"
+   classNames={state.classNames}
    onToasterDismissed={()=>setState({visible: false})}
  />
 </>

@@ -16,7 +16,8 @@ type Props = {
 
 type State = {
   toggleVisibility: false,
-  toasterTopPosition: number
+  toasterTopPosition: number,
+  isMouseOverToast: false
 };
 
 class Toaster extends PureComponent<Props, State> {
@@ -67,10 +68,12 @@ class Toaster extends PureComponent<Props, State> {
     const { toggleVisibility } = this.state;
 
     this.timeoutReference = setTimeout(() => {
-      if (visible || toggleVisibility) {
-        this.removeScrollListener();
-        this.setState({ toggleVisibility: false });
-        onToasterDismissed();
+      if (!this.state.isMouseOverToast) {
+        if (visible || toggleVisibility) {
+          this.removeScrollListener();
+          this.setState({ toggleVisibility: false });
+          onToasterDismissed();
+        }
       }
     }, timeout);
   };
@@ -94,6 +97,14 @@ class Toaster extends PureComponent<Props, State> {
     this.setState({ toggleVisibility: true }, this.startTimeoutAfterVisibility);
   };
 
+  onMouseEnter = () => {
+    this.setState({ isMouseOverToast: true });
+  }
+
+  onMouseLeave = () => {
+    this.setState({ isMouseOverToast: false }, this.startTimeoutAfterVisibility);
+  }
+
   render() {
     const {
       visible,
@@ -116,6 +127,8 @@ class Toaster extends PureComponent<Props, State> {
           className={`d-flex  ac-toaster ${
             visible ? 'show' : 'hide'
           } ${classNames}`}
+          onMouseEnter={this.onMouseEnter}
+          onMouseLeave={this.onMouseLeave}
         >
           <div className="d-flex p-3 justify-content-center align-items-center p-4">
             {CustomIcon ? (
@@ -127,7 +140,7 @@ class Toaster extends PureComponent<Props, State> {
 
           <div className="d-flex flex-column w-100">
             <div className="d-flex justify-content-between pr-3 pt-3 w-100">
-              <p className="p-0 m-0 font-weight-bold">{title}</p>
+              <p id="toaster-title" className="p-0 m-0 font-weight-bold">{title}</p>
 
               {/* eslint-disable-next-line operator-linebreak */}
               {hasCloseIcon &&
@@ -149,7 +162,7 @@ class Toaster extends PureComponent<Props, State> {
                 ))}
             </div>
 
-            <small className="p-0 pb-3 pr-3 m-0 font-weight-light">
+            <small id="toaster-subtitle" className="p-0 pb-3 pr-3 m-0 font-weight-light">
               {subtitle}
             </small>
           </div>
