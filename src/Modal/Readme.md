@@ -54,6 +54,7 @@ const ExampleModal = () => {
         classList={classes}
         contentLabel="Example Modal"
         ariaAttributes={ariaAttributes}
+        shouldCloseOnEsc={false}
       >
         <div className="modal-content">
           <h1 id="heading">Example Modal</h1>
