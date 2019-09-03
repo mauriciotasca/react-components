@@ -1,4 +1,3 @@
-import Accordion from './Accordion';
 import AlertModal from './AlertModal';
 import AlternatingText from './AlternatingText';
 import Button from './Button';
@@ -16,7 +15,6 @@ import Table, { TableHeader, TableBody, TableRow } from './Table';
 import { Toaster } from './Toaster';
 
 export {
-  Accordion,
   AlertModal,
   AlternatingText,
   Button,
