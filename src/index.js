@@ -2,7 +2,7 @@ import Accordion from './Accordion';
 import AlertModal from './AlertModal';
 import AlternatingText from './AlternatingText';
 import Button from './Button';
-import ConfrimModal from './ConfirmModal';
+import ConfirmModal from './ConfirmModal';
 import CustomSelect from './CustomSelect';
 import DatePicker from './DatePicker';
 import HeaderTitle from './HeaderTitle';
@@ -20,7 +20,7 @@ export {
   AlertModal,
   AlternatingText,
   Button,
-  ConfrimModal,
+  ConfirmModal,
   CustomSelect,
   DatePicker,
   HeaderTitle,
