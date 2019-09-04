@@ -9,6 +9,7 @@ tmp/
 !.vscode/launch.json
 !.vscode/extensions.json
 !.nvmrc
+.DS_Store
 
 # Jest test coverage
 reports/

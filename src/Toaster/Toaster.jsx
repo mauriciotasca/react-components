@@ -2,22 +2,32 @@ import React, { PureComponent } from 'react';
 import './Toaster.scss';
 
 type Props = {
+  /** Boolean describing if the toaster should be shown or not. */
   visible: boolean,
+  /** Number indicating the timeout to hide the toaster. */
   timeout?: number,
+  /** Number indicating the distance from the toaster to the top. */
   topOffset?: number,
+  /** Element to display as icon. Default is a close icon. */
   closeIcon?: any,
+  /** Boolean describing if the close icon should be shown or not. */
   hasCloseIcon?: boolean,
+  /** Element to display as icon. */
   icon?: any,
+  /** String to display as Toaster title. */
   title: string,
+  /** String to display as Toaster subtitle. */
   subtitle: string,
+  /** String className to be applied to the Toaster. */
   classNames: string,
+  /** Function that will be run when the Toaster is requested to be closed. */
   onToasterDismissed: Function
 };
 
 type State = {
-  toggleVisibility: false,
+  toggleVisibility: boolean,
   toasterTopPosition: number,
-  isMouseOverToast: false
+  isMouseOverToast: boolean
 };
 
 class Toaster extends PureComponent<Props, State> {
@@ -25,7 +35,8 @@ class Toaster extends PureComponent<Props, State> {
 
   state = {
     toggleVisibility: false,
-    toasterTopPosition: this.props.topOffset
+    toasterTopPosition: this.props.topOffset,
+    isMouseOverToast: false
   };
 
   static defaultProps = {
@@ -38,39 +49,19 @@ class Toaster extends PureComponent<Props, State> {
 
   componentDidUpdate(prevProps): void {
     const { timeout, visible } = this.props;
-
-    if (visible) {
-      this.checkScrollTopPosition();
-      if (prevProps.visible !== visible && visible) {
-        this.addScrollListener();
-        this.setToasterTimeout(timeout);
-      }
-    } else {
-      this.removeScrollListener();
+    if (prevProps.visible !== visible && visible) {
+      this.setToasterTimeout(timeout);
     }
   }
 
-  checkScrollTopPosition = () => {
-    const { topOffset } = this.props;
-    const bodyScrollTop = document.body.scrollTop;
-    const documentScrollTop = document.documentElement.scrollTop;
-    const scrollTop = bodyScrollTop || documentScrollTop;
-
-    if (scrollTop <= topOffset) {
-      this.setState({ toasterTopPosition: topOffset - scrollTop });
-    } else {
-      this.setState({ toasterTopPosition: 0 });
-    }
-  };
-
-  startTimeoutAfterVisibility = () => {
+  startTimeoutToHideIfMouseIsNotOver = () => {
     const { timeout, onToasterDismissed, visible } = this.props;
-    const { toggleVisibility } = this.state;
 
     this.timeoutReference = setTimeout(() => {
-      if (!this.state.isMouseOverToast) {
+      const { toggleVisibility, isMouseOverToast } = this.state;
+
+      if (!isMouseOverToast) {
         if (visible || toggleVisibility) {
-          this.removeScrollListener();
           this.setState({ toggleVisibility: false });
           onToasterDismissed();
         }
@@ -80,30 +71,21 @@ class Toaster extends PureComponent<Props, State> {
 
   onCloseIconClick = () => {
     const { onToasterDismissed } = this.props;
-    this.removeScrollListener();
     clearTimeout(this.timeoutReference);
     onToasterDismissed();
   };
 
-  removeScrollListener = () => {
-    window.removeEventListener('scroll', this.checkScrollTopPosition);
-  };
-
-  addScrollListener = () => {
-    window.addEventListener('scroll', this.checkScrollTopPosition);
-  };
-
   setToasterTimeout = () => {
-    this.setState({ toggleVisibility: true }, this.startTimeoutAfterVisibility);
+    this.setState({ toggleVisibility: true }, this.startTimeoutToHideIfMouseIsNotOver);
   };
 
   onMouseEnter = () => {
     this.setState({ isMouseOverToast: true });
-  }
+  };
 
   onMouseLeave = () => {
-    this.setState({ isMouseOverToast: false }, this.startTimeoutAfterVisibility);
-  }
+    this.setState({ isMouseOverToast: false }, this.startTimeoutToHideIfMouseIsNotOver);
+  };
 
   render() {
     const {

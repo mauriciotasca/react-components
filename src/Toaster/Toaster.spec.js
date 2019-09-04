@@ -2,7 +2,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import Toaster from './Toaster';
 
-describe('Component', () => {
+describe('Toaster Component', () => {
   const defaultProps = {
     timeout: 1000,
     visible: false,
