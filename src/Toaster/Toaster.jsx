@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import classNames from 'classnames';
 import './Toaster.scss';
 
 type Props = {
@@ -18,8 +19,8 @@ type Props = {
   title: string,
   /** String to display as Toaster subtitle. */
   subtitle: string,
-  /** String className to be applied to the Toaster. */
-  classNames: string,
+  /** String className or Array of String classNames to add to the component. */
+  classList?: string | Array<string>,
   /** Function that will be run when the Toaster is requested to be closed. */
   onToasterDismissed: Function
 };
@@ -76,7 +77,10 @@ class Toaster extends PureComponent<Props, State> {
   };
 
   setToasterTimeout = () => {
-    this.setState({ toggleVisibility: true }, this.startTimeoutToHideIfMouseIsNotOver);
+    this.setState(
+      { toggleVisibility: true },
+      this.startTimeoutToHideIfMouseIsNotOver
+    );
   };
 
   onMouseEnter = () => {
@@ -84,7 +88,10 @@ class Toaster extends PureComponent<Props, State> {
   };
 
   onMouseLeave = () => {
-    this.setState({ isMouseOverToast: false }, this.startTimeoutToHideIfMouseIsNotOver);
+    this.setState(
+      { isMouseOverToast: false },
+      this.startTimeoutToHideIfMouseIsNotOver
+    );
   };
 
   render() {
@@ -95,20 +102,19 @@ class Toaster extends PureComponent<Props, State> {
       hasCloseIcon,
       icon: CustomIcon,
       closeIcon: CloseIcon,
-      classNames
+      classList
     } = this.props;
 
     const { toasterTopPosition } = this.state;
 
     return (
-      <div
-        style={{ top: toasterTopPosition }}
-        className="ac-toaster-container"
-      >
+      <div style={{ top: toasterTopPosition }} className="ac-toaster-container">
         <div
-          className={`d-flex  ac-toaster ${
-            visible ? 'show' : 'hide'
-          } ${classNames}`}
+          className={classNames(
+            'd-flex  ac-toaster',
+            { show: visible, hide: !visible },
+            classList
+          )}
           onMouseEnter={this.onMouseEnter}
           onMouseLeave={this.onMouseLeave}
         >
@@ -122,7 +128,9 @@ class Toaster extends PureComponent<Props, State> {
 
           <div className="d-flex flex-column w-100">
             <div className="d-flex justify-content-between pr-3 pt-3 w-100">
-              <p id="toaster-title" className="p-0 m-0 font-weight-bold">{title}</p>
+              <p id="toaster-title" className="p-0 m-0 font-weight-bold">
+                {title}
+              </p>
 
               {/* eslint-disable-next-line operator-linebreak */}
               {hasCloseIcon &&
@@ -144,7 +152,10 @@ class Toaster extends PureComponent<Props, State> {
                 ))}
             </div>
 
-            <small id="toaster-subtitle" className="p-0 pb-3 pr-3 m-0 font-weight-light">
+            <small
+              id="toaster-subtitle"
+              className="p-0 pb-3 pr-3 m-0 font-weight-light"
+            >
               {subtitle}
             </small>
           </div>
@@ -153,5 +164,9 @@ class Toaster extends PureComponent<Props, State> {
     );
   }
 }
+
+Toaster.defaultProps = {
+  classList: ''
+};
 
 export default Toaster;

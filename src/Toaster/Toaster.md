@@ -34,7 +34,7 @@ initialState = {
   topOffset: 0,
   icon: CheckIcon,
   closeIcon: CloseIcon,
-  classNames: 'bg-success text-white',
+  classList: ['bg-success', 'text-white'],
   onToasterDismissed: null
 };
 <>
@@ -49,7 +49,7 @@ initialState = {
    topOffset={state.topOffset}
    closeIcon={state.closeIcon}
    icon={state.icon}
-   classNames={state.classNames}
+   classList={state.classList}
    onToasterDismissed={() => setState({ visible: false })}
  />
 </>
