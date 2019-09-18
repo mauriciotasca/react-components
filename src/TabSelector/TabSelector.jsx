@@ -4,7 +4,7 @@ import './TabSelector.scss';
 type Props = {
   /** Array of React Component to load the `nav-items` inside `nav-tabs` element */
   tabItems: Array<React.Component>,
-  /** Boolean to show or not the animation of tab transition. Default is true. */
+  /** Boolean to show or not the animation of tab transition. */
   hasTabTransitionAnimation?: Boolean
 };
 

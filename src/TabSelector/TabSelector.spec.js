@@ -85,11 +85,11 @@ describe('When Tab Selector is rendered with tab items', () => {
     expect(wrapper.find(NAV_ITEMS_SELECTOR).length).toEqual(tabItems.length);
   });
 
-  it('should contain a div element with class "current-segment" that is used to do the animation of transition between tabs, which is optional but true as default', () => {
+  it('should contain a div element with class "current-segment"', () => {
     expect(wrapper.find(DIV_TAB_TRANSITION_ANIMATION)).toHaveLength(1);
   });
 
-  it('the active class before any tab change should be in the first one (home tab in this case)', () => {
+  it('the first tab should contain the "active" class before any tab interaction', () => {
     expect(wrapper.find(HOME_TAB).prop('className')).toContain(ACTIVE_CLASS);
   });
 
@@ -98,7 +98,7 @@ describe('When Tab Selector is rendered with tab items', () => {
     expect(wrapper.find(HOME_TAB).prop('className')).toContain(ACTIVE_CLASS);
   });
 
-  it('when tab transition animation is disabled', () => {
+  it('should not exist the div elment with class "current-segment" when tab transition animation is disabled', () => {
     const hasTabTransitionAnimation = false;
 
     wrapper.setProps({ hasTabTransitionAnimation });
