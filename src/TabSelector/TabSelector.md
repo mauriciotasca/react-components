@@ -179,7 +179,7 @@ const ExampleTabSelector = () => {
 <ExampleTabSelector />;
 ```
 
-**Example:** Using HTML `hyperlinks`: Tabs are created using `hyperlinks`. In addition is used a `currentTab` state which is changed on tab click, giving the possibility to manipulate the page content using its value.
+**Example:** Using HTML `button`: Tabs are created using `button`. In addition is used a `currentTab` state which is changed on tab click, giving the possibility to manipulate the page content using its value.
 
 ```jsx
 import React, { useState, Fragment } from 'react';
@@ -188,7 +188,6 @@ const ExampleTabSelector = () => {
   const tabItemsData = [
     {
       id: 'home',
-      path: '#',
       label: 'Home',
       content: (
         <div>
@@ -209,7 +208,6 @@ const ExampleTabSelector = () => {
     },
     {
       id: 'profile',
-      path: '#',
       label: 'Profile',
       content: (
         <div>
@@ -225,7 +223,6 @@ const ExampleTabSelector = () => {
     },
     {
       id: 'contact',
-      path: '#',
       label: 'Contact',
       content: (
         <div>
@@ -247,12 +244,11 @@ const ExampleTabSelector = () => {
   const [currentTab, setCurrentTab] = useState(tabItemsData[0].id);
 
   const tabItems = tabItemsData.map(tabData => (
-    <a
+    <button
       className={`nav-link ${currentTab === tabData.id ? 'active' : ''}`}
       id={tabData.id}
       key={tabData.id}
       data-toggle="tab"
-      href={tabData.path}
       role="tab"
       onClick={event => {
         event.preventDefault();
@@ -260,7 +256,7 @@ const ExampleTabSelector = () => {
       }}
     >
       {tabData.label}
-    </a>
+    </button>
   ));
 
   return (
@@ -294,7 +290,7 @@ const ExampleTabSelector = () => {
 <ExampleTabSelector />;
 ```
 
-**Example:** Using HTML `hyperlinks`: It's the same example of previous, but in this case the tab transition animation is hide.
+**Example:** Using HTML `hyperlinks`: Tabs are created using `hyperlinks`. In addition is used a `currentTab` state which is changed on tab click, giving the possibility to manipulate the page content using its value. And in this example the tab transition animation is disabled.
 
 ```jsx
 import React, { useState, Fragment } from 'react';
