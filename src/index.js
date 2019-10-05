@@ -11,6 +11,7 @@ import MenuPopover from './MenuPopover';
 import Modal from './Modal';
 import Row from './Row';
 import Subheader from './Subheader';
+import TabSelector from './TabSelector';
 import Table, { TableHeader, TableBody, TableRow } from './Table';
 import { Toaster } from './Toaster';
 
@@ -28,6 +29,7 @@ export {
   Modal,
   Row,
   Subheader,
+  TabSelector,
   Table,
   TableHeader,
   TableBody,
