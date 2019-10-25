@@ -29,24 +29,28 @@ initialState = {
   visible: false,
   title: 'Toaster Title',
   subtitle: 'Toaster Subtitle',
+  timeout: 3000,
   hasCloseIcon: true,
+  topOffset: 0,
   icon: CheckIcon,
-  classNames: 'bg-success text-white',
+  closeIcon: CloseIcon,
+  classList: ['bg-success', 'text-white'],
   onToasterDismissed: null
 };
 <>
- <button onClick={()=> setState({visible:!state.visible})} className="btn btn-primary">Show Toaster</button>
+ <button onClick={() => setState({visible:!state.visible})} className="btn btn-primary">Show Toaster</button>
 
  <Toaster 
    visible={state.visible}
    title={state.title}
    subtitle={state.subtitle}
-   hasCloseIcon
-   topOffset={0}
-   closeIcon={CloseIcon}
-   icon={CheckIcon}
-   classNames="bg-success text-white"
-   onToasterDismissed={()=>setState({visible: false})}
+   timeout={state.timeout}
+   hasCloseIcon={state.hasCloseIcon}
+   topOffset={state.topOffset}
+   closeIcon={state.closeIcon}
+   icon={state.icon}
+   classList={state.classList}
+   onToasterDismissed={() => setState({ visible: false })}
  />
 </>
 ```
