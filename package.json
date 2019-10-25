@@ -1,6 +1,6 @@
 {
   "name": "@ac-ui/react-components",
-  "private": true,
+  "private": false,
   "engines": {
     "node": "10.0.0"
   },
