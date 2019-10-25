@@ -3,7 +3,7 @@
 A React Component library
 
 ## Installation
-- Install as a npm dependency `npm i git+ssh://git@gitlab.com:acbr/internal/ac-ui/react-components.git`
+- Install as a npm dependency `npm i @ac-ui/react-components`
 - Import component
     - ```jsx harmony
       import { Subheader } from '~@ac-ui/react-components';
