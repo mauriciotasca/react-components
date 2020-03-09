@@ -14,6 +14,7 @@ import Subheader from './Subheader';
 import TabSelector from './TabSelector';
 import Table, { TableHeader, TableBody, TableRow } from './Table';
 import { Toaster } from './Toaster';
+import {MoodLine} from './MoodLine';
 
 export {
   AlertModal,
@@ -27,6 +28,7 @@ export {
   LoadingBar,
   MenuPopover,
   Modal,
+  MoodLine,
   Row,
   Subheader,
   TabSelector,

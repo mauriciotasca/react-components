@@ -19,9 +19,10 @@ module.exports = {
   webpackConfig,
   theme: {
     color: {
-      baseBackground: '#fdfdfc',
-      link: '#274e75',
-      linkHover: '#90a7bf',
+      baseBackground: '#fafafa',
+      sidebarBackground: '#232627',
+      link: '#0094ff',
+      linkHover: '#007bca',
       border: '#e0d2de',
     },
     fontFamily: {

@@ -1,0 +1,28 @@
+@import '~@ac-ui/design-system/src/theme';
+.mood-line{
+    height: 8px;
+      transition: width 0.2s linear;
+    &:focus {
+        outline: none;
+    }
+@each $color, $code in $colors {
+    & .bg-#{$color} {
+      z-index: 3;
+      border-radius: 1rem;
+      background-color: $code;
+      color: white;
+      left: 50%;
+      margin-left: -50px;
+      bottom: -20px;
+      text-align: center;
+      visibility: hidden;
+      font-size: 12px;
+      transition: visibilty 0s, opacity 0.1s linear, width 0.3s default;
+      opacity:0;
+      &.open {
+          visibility: visible;
+          opacity: 1;
+      }
+}
+}
+}

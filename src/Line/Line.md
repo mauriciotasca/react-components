@@ -1,0 +1,9 @@
+```jsx
+<Line
+  color="bg-red"
+  moodText="Possibility"
+  key="respect"
+  showPercentage
+  percentage="100"
+/>
+```

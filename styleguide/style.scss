@@ -1,7 +1,48 @@
 .ac-components-library-info {
   text-align: center;
 
+  img{
+    width: 100%;
+  }
   &__title {
     margin-bottom: 0;
   }
 }
+
+
+div {
+  &[class*="rsg--sidebar"] {
+    a{
+      color: #fff !important;
+
+      &:hover{
+        color: #aeaebb !important;
+      }
+    }
+
+    input {
+
+      background-color: #424849 !important;
+      border: 1px solid #757575;
+      color: #eeeeee;
+
+      &::placeholder{
+        color: #9e9e9e;
+      }
+      &:focus{
+        border-color: #eeeeee !important;
+      }
+    }
+  }
+}
+
+button {
+  &[class*="rsg--button"] {
+    color: #0095f4;
+  }
+  &[class*="isActive"] {
+    border-bottom: 2px #0095f4 solid;
+  }
+}
+
+
