@@ -7,13 +7,12 @@ type Props = {
 }
 
 const VersionRenderer = (props: Props) => {
-  const version = 'v '.concat(props.children);
+  // const version = 'v '.concat(props.children);
 
-  return (
-    <div className="text-center">
-      <AlternatingText text={version} As="small" classList="ac-components-library-version" aria-label="version" />
-    </div>
-  );
+  return null;
+  // <div className="text-center">
+  //   <AlternatingText text={version} As="small" classList="ac-components-library-version" aria-label="version" />
+  // </div>
 };
 
 

@@ -11,8 +11,9 @@ const moodsPercentage = {
   trust: '12.5'
 };
 
-<div>
+<div className="w-100 position-relative">
+<MoodLine showPercentage moodsPercentage={moodsPercentage} />
+</div>
 
-<div/>
-<MoodLine showPercentage moodsPercentage={moodsPercentage} />;
+
 ```

@@ -16,7 +16,7 @@ To apply default styles, import Bootstrap classes:
 
 Thereafter, you can pass in Bootstrap classnames via the `classList` prop, include them as part of `children` nodes, or apply your own custom styles.
 
-**Don't see the import for `ac-ui` base styles?**  
+**Don't see the import for `ac-ui` base styles?**
 That's because they're already included when importing `bridge`, no need to duplicate import!
 
 ___

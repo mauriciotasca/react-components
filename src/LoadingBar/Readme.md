@@ -9,7 +9,7 @@ To apply default styles, import `ac-ui` base style:
 ```scss
 @import "~@ac-ui/design-system/src/base";
 ```
-  
+
 Thereafter, you can pass in Bootstrap classnames via the `classList` prop or apply your own custom styles.
 
 ___
@@ -30,7 +30,7 @@ const Loader = () => {
 
   return (
     <div>
-      <Button classList={['toggle-loader']} onClick={() => setLoading(!loading)}>
+      <Button classList={['toggle-loader btn btn-primary mb-5']} onClick={() => setLoading(!loading)}>
         Toggle Loader
       </Button>
       <LoadingBar isLoading={loading} />

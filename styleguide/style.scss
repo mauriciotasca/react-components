@@ -9,6 +9,11 @@
   }
 }
 
+div{
+  &[class*="rsg--logo"] {
+   border: none;
+  }
+}
 
 div {
   &[class*="rsg--sidebar"] {
@@ -33,6 +38,12 @@ div {
         border-color: #eeeeee !important;
       }
     }
+  }
+}
+
+div{
+  &[class*="rsg--search"] {
+    margin-bottom: 16px;
   }
 }
 
