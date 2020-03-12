@@ -15,7 +15,7 @@ module.exports = {
   defaultExample: true,
   showSidebar: true,
   usageMode: 'expand',
-  exampleMode: 'collapse',
+  exampleMode: 'expand',
   webpackConfig,
   theme: {
     color: {
@@ -31,20 +31,7 @@ module.exports = {
       sidebarBackground: '#232627',
       link: '#0094ff',
       linkHover: '#007bca',
-      border: '#e0d2de',
-
-      // codeBase: '#333',
-      // codeComment: '#6d6d6d',
-      // codePunctuation: '#999',
-      // codeProperty: '#905',
-      // codeDeleted: '#905',
-      // codeString: '#690',
-      // codeInserted: '#690',
-      // codeOperator: '#9a6e3a',
-      // codeKeyword: '#1673b1',
-      // codeFunction: '#DD4A68',
-      // codeVariable: '#e90',
-
+      border: '#e0d2de'
     },
     fontFamily: {
       base: ['Overpass', 'Helvetica', 'sans-serif'],
